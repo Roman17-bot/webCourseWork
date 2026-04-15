@@ -1,0 +1,1233 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>АкваТехноСервис — Моечное оборудование WashTec в Беларуси</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script type="module" src="js/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ===== HEADER / NAVBAR ===== -->
+    <header class="header" role="banner">
+      <div class="header__inner">
+        <!-- Logo -->
+        <a href="#" class="header__logo" aria-label="АкваТехноСервис — главная">
+          <img
+            src="assets/images/АкваТехноСервис-лого-1.png"
+            alt="АкваТехноСервис логотип"
+            class="header__logo-img"
+          />
+        </a>
+
+        <!-- Info block -->
+        <div class="header__info">
+          <p class="header__info-line-small">
+            Официальный дилер немецкой компании <strong>WashTec</strong> в
+            Беларуси
+          </p>
+          <p class="header__info-line">
+            Официальный представитель российских компаний:
+            <strong
+              >"Мой-ка! DS-Business", "Cleanol", "Агроснабтехсервис"</strong
+            >
+          </p>
+        </div>
+
+        <!-- Contacts -->
+        <div class="header__contacts">
+          <span class="header__hours">пн-пт с 9:00 до 18:00</span>
+          <div class="header__phone-row">
+            <a href="tel:+375293658070" class="header__phone"
+              >+375 29 365 80 70</a
+            >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13"
+              height="8"
+              viewBox="0 0 13 8"
+              fill="none"
+            >
+              <path
+                d="M1.41406 1.41422L6.41406 6.41421L11.4141 1.41421"
+                stroke="#A0A3BC"
+                stroke-width="2"
+                stroke-linecap="square"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="header__socials">
+            <a href="#" class="header__social-link" aria-label="Viber">
+              <img
+                src="assets/icons/viber.svg"
+                alt="Viber"
+                class="header__social-icon"
+              />
+            </a>
+            <a href="#" class="header__social-link" aria-label="Telegram">
+              <img
+                src="assets/icons/whats.svg"
+                alt="Telegram"
+                class="header__social-icon"
+              />
+            </a>
+            <a href="#" class="header__social-link" aria-label="WhatsApp">
+              <img
+                src="assets/icons/tg.svg"
+                alt="WhatsApp"
+                class="header__social-icon"
+              />
+            </a>
+            <a href="#" class="header__social-link" aria-label="Instagram">
+              <img
+                src="assets/icons/skype.svg"
+                alt="Instagram"
+                class="header__social-icon"
+              />
+            </a>
+            <a href="#" class="header__social-link" aria-label="ВКонтакте">
+              <img
+                src="assets/icons/msg.svg"
+                alt="ВКонтакте"
+                class="header__social-icon"
+              />
+            </a>
+          </div>
+          <div class="header__meta-row">
+            <a href="mailto:sales@aqts.by" class="header__email"
+              >sales@aqts.by</a
+            >
+          </div>
+        </div>
+
+        <!-- Hamburger -->
+        <button
+          class="header__hamburger"
+          id="hamburger-btn"
+          aria-label="Открыть меню навигации"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span class="header__hamburger-line"></span>
+          <span
+            class="header__hamburger-line header__hamburger-line--mid"
+          ></span>
+          <span
+            class="header__hamburger-line header__hamburger-line--short"
+          ></span>
+        </button>
+      </div>
+
+      <!-- Nav menu -->
+      <nav
+        class="nav"
+        id="nav-menu"
+        role="navigation"
+        aria-label="Основная навигация"
+      >
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#about" class="nav__link">О нас</a>
+          </li>
+          <li class="nav__item">
+            <a href="pages/cart.html" class="nav__link">Корзина</a>
+          </li>
+          <li class="nav__item">
+            <a href="pages/catalog.html" class="nav__link">Каталог</a>
+          </li>
+          <li class="nav__item">
+            <a href="pages/favorites.html" class="nav__link">Избранные</a>
+          </li>
+          <li class="nav__item">
+            <a href="#projects" class="nav__link">Проекты</a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===== HERO SECTION ===== -->
+      <section class="hero" aria-label="Главный экран">
+        <!-- Left: background image + text blocks -->
+        <div class="hero__left">
+          <div class="hero__bg" aria-hidden="true">
+            <img src="assets/images/bg-hero.jpg" alt="" class="hero__bg-img" />
+            <div class="hero__bg-overlay"></div>
+          </div>
+
+          <div class="hero__text-blocks">
+            <div class="hero__text-item">
+              <div class="hero__text-content">
+                <p class="hero__text-gray">Наши знания&nbsp;—</p>
+                <p class="hero__text-blue">Ваши знания</p>
+              </div>
+            </div>
+            <div class="hero__text-item">
+              <div class="hero__text-content">
+                <p class="hero__text-gray">Наш опыт&nbsp;—</p>
+                <p class="hero__text-blue">Ваш опыт</p>
+              </div>
+            </div>
+            <div class="hero__text-item">
+              <div class="hero__text-content">
+                <p class="hero__text-gray">Наша работа&nbsp;—</p>
+                <p class="hero__text-blue-big">
+                  Ваш стабильно<br />растущий бизнес
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 2x3 image grid -->
+        <div class="hero__right" aria-hidden="true">
+          <!-- Featured card (top-right, with gradient + text) -->
+          <div style="border-top: none" class="hero__grid-card">
+            <img
+              src="assets/images/hero-1.jpg"
+              alt="Туннельная мойка WashTec"
+              class="hero__grid-img"
+            />
+          </div>
+          <div style="border-top: none" class="hero__grid-card">
+            <img
+              src="assets/images/hero-2.jpg"
+              alt="Моечное оборудование"
+              class="hero__grid-img"
+            />
+            <div class="hero__grid-overlay"></div>
+          </div>
+          <div class="hero__grid-card">
+            <img
+              src="assets/images/hero3.jpg"
+              alt="Автомойка"
+              class="hero__grid-img"
+            />
+            <div class="hero__grid-overlay"></div>
+          </div>
+          <div class="hero__grid-card">
+            <img
+              src="assets/images/hero4.jpg"
+              alt="Портальная мойка"
+              class="hero__grid-img"
+            />
+            <div class="hero__grid-overlay"></div>
+          </div>
+          <div class="hero__grid-card">
+            <img
+              src="assets/images/hero5.jpg"
+              alt="Мойка самообслуживания"
+              class="hero__grid-img"
+            />
+            <div class="hero__grid-overlay"></div>
+          </div>
+          <div class="hero__grid-card">
+            <img
+              src="assets/images/hero6.jpg"
+              alt="Грузовая мойка"
+              class="hero__grid-img"
+            />
+            <div class="hero__grid-overlay"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BANNER: ЗАПУСТИТЕ БИЗНЕС ===== -->
+      <section class="banner" aria-label="Запустите бизнес без рисков">
+        <div class="banner__inner">
+          <div class="banner__left">
+            <h2 class="banner__title">Запустите свой бизнес без рисков!</h2>
+          </div>
+          <div class="banner__right">
+            <div class="banner__divider" aria-hidden="true"></div>
+            <p class="banner__text">
+              Мы пройдем путь вместе, начиная от проектирования мойки и
+              заканчивая благоустройством прилегающей территории. Наши знания и
+              15-летний опыт позволяет открыть моечный комплекс с минимальным
+              числом ошибок
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ABOUT ===== -->
+      <section
+        class="about container"
+        id="about"
+        aria-labelledby="about-heading"
+      >
+        <div class="about__content">
+          <h2 class="about__heading" id="about-heading">О нас</h2>
+
+          <p class="about__intro">
+            <strong>ООО «Акватехносервис»</strong> — официальный представитель
+            немецкого концерна WashTec в Республике Беларусь и Российской
+            Федерации и официальный представитель российской компании "Мой-ка!
+            DS-Business"
+          </p>
+          <p style="margin-top: -4px" class="about__intro">
+            Также мы являемся официальным представителем российской компании
+            "Cleanol" и российской компании "Агроснабтехсервис"
+          </p>
+
+          <!-- Mission -->
+          <div class="about__mission">
+            <div class="about__mission-line" aria-hidden="true"></div>
+            <div class="about__mission-body">
+              <p class="about__section-label"><strong>Наша миссия</strong></p>
+              <p class="about__mission-text">
+                Обеспечение компании-партнера высококлассным оборудованием.
+                Экономия времени и денег клиента во время постройки бизнеса и
+                при его дальнейшем функционировании за счет наших возможностей,
+                знаний и опыта
+              </p>
+            </div>
+          </div>
+
+          <!-- Directions -->
+          <div class="about__directions">
+            <p class="about__section-label">
+              <strong>3 направления нашей деятельности:</strong>
+            </p>
+            <ul class="bullet-list-1">
+              <li class="bullet-list__item">
+                продажа моечного оборудования для легкового и грузового
+                транспорта
+              </li>
+              <li class="bullet-list__item">
+                профессиональный монтаж моечных комплексов
+              </li>
+              <li class="bullet-list__item">
+                техническое обслуживание автомобильных моек
+              </li>
+            </ul>
+          </div>
+
+          <!-- Body text -->
+          <p class="about__body">
+            Команда ООО «Акватехносервис» работает только с теми
+            производителями, чьё оборудование было протестировано специалистами
+            компании. Мы выбираем тех, кто может гарантировать стабильную работу
+            оборудования в течение всего эксплуатационного периода
+          </p>
+
+          <a href="#contact" class="btn btn--primary">Узнать больше</a>
+        </div>
+
+        <!-- Photos -->
+        <div class="about__photos" aria-hidden="true">
+          <div class="about__photo about__photo--1">
+            <img
+              src="assets/images/about1.jpg"
+              alt="Автомойка объект 1"
+              class="about__photo-img"
+            />
+            <div class="about__photo-overlay"></div>
+          </div>
+          <div class="about__photo about__photo--2">
+            <img
+              src="assets/images/about3.png"
+              alt="Автомойка объект 2"
+              class="about__photo-img"
+            />
+            <div class="about__photo-overlay"></div>
+          </div>
+          <div class="about__photo about__photo--3">
+            <img
+              src="assets/images/about2.jpg"
+              alt="Автомойка объект 3"
+              class="about__photo-img"
+            />
+            <div class="about__photo-overlay"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Divider -->
+      <div class="section-divider container" aria-hidden="true"></div>
+
+      <!-- ===== MANUFACTURERS ===== -->
+      <section
+        class="manufacturers container"
+        id="manufacturers"
+        aria-labelledby="manufacturers-heading"
+      >
+        <h2 class="manufacturers__heading" id="manufacturers-heading">
+          Производители моечного оборудования, с которыми мы работаем
+        </h2>
+
+        <div class="manufacturers__grid">
+          <!-- WashTec -->
+          <article class="manufacturer-card">
+            <div class="manufacturer-card__logo-wrap">
+              <img
+                src="assets/icons/wash.svg"
+                alt="WashTec логотип"
+                class="manufacturer-card__logo"
+              />
+            </div>
+            <div class="manufacturer-card__desc">
+              <div
+                class="manufacturer-card__desc-line"
+                aria-hidden="true"
+              ></div>
+              <p class="manufacturer-card__desc-text">
+                Мировой лидер по производству автомобильных моек. Именно WashTec
+                задает стандарты для автомоек всех типов – портальные и
+                конвейерные автомойки для легковых и грузовых автомобилей, а
+                также для моек самообслуживания
+              </p>
+            </div>
+            <p class="manufacturer-card__label">
+              <strong>WashTec — это:</strong>
+            </p>
+            <ul class="bullet-list">
+              <li class="bullet-list__item">
+                новые победы и самые высокие стандарты мытья автомобилей на
+                мировом рынке
+              </li>
+              <li class="bullet-list__item">
+                научный подход и техническая реализация в каждой единице
+                оборудования
+              </li>
+              <li class="bullet-list__item">
+                постоянное движение и поиск лучших решений для идеального
+                исполнения
+              </li>
+              <li class="bullet-list__item">
+                анализ потребностей клиента и предоставление выгодных вариантов
+                сотрудничества
+              </li>
+            </ul>
+          </article>
+
+          <!-- Мой-ка! DS-Business -->
+          <article class="manufacturer-card">
+            <div class="manufacturer-card__logo-wrap">
+              <img
+                src="assets/icons/ds.svg"
+                alt="Мой-ка! DS-Business логотип"
+                class="manufacturer-card__logo-2"
+              />
+            </div>
+            <div class="manufacturer-card__desc">
+              <div
+                class="manufacturer-card__desc-line"
+                aria-hidden="true"
+              ></div>
+              <p class="manufacturer-card__desc-text-2">
+                Компания специализируется на производстве оборудования для моек
+                самообслуживания и робот-моек уже 11 лет. Основной рынок
+                поставок — Россия, Латвия, Эстония, Грузия, Казахстан,
+                Узбекистан. Установлено более 200 моечных комплексов
+              </p>
+            </div>
+            <p class="manufacturer-card__label">
+              <strong>Мой-ка! DS-Business — это:</strong>
+            </p>
+            <ul class="bullet-list">
+              <li class="bullet-list__item">
+                инновации в сфере производства моек самообслуживания
+              </li>
+              <li class="bullet-list__item">
+                технологии будущего. Производство моек нового поколения из
+                высококачественных комплектующих немецких и итальянских
+                производителей
+              </li>
+              <li class="bullet-list__item">
+                упор на высокую рентабельность. Клиент окупает свои затраты
+                быстрее за счет грамотно организованного моечного комплекса
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== WASH TYPES CAROUSEL ===== -->
+      <section
+        class="wash-types"
+        id="wash-types"
+        aria-labelledby="wash-types-heading"
+      >
+        <div class="wash-types__header">
+          <div class="wash-types__nav" aria-label="Навигация по типам моек">
+            <button
+              class="wash-types__nav-btn wash-types__nav-btn--prev"
+              id="carousel-prev"
+              aria-label="Предыдущий слайд"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 2L3.5 6L7.5 10"
+                  stroke="#3a475e"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              class="wash-types__nav-btn wash-types__nav-btn--next"
+              id="carousel-next"
+              aria-label="Следующий слайд"
+            >
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.5 2L8.5 6L4.5 10"
+                  stroke="#3a475e"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="wash-types__track-wrap" aria-label="Типы автомоек">
+          <div class="wash-types__track" id="carousel-track">
+            <!-- Card 1: Самообслуживание -->
+            <article class="wash-card">
+              <img
+                src="assets/images/card1.jpg"
+                alt="Автомойка самообслуживания WashTec"
+                class="wash-card__img"
+              />
+              <div class="wash-card__overlay"></div>
+
+              <div class="wash-card__content">
+                <h3 class="wash-card__title">
+                  Автомойка самообслуживания WashTec
+                </h3>
+
+                <div class="wash-card__desc">
+                  <div class="wash-card__desc-line" aria-hidden="true"></div>
+                  <div class="wash-card__desc-text">
+                    <p style="margin-bottom: 12px">
+                      Продуманные решения для разных площадей земельного
+                      участка:
+                    </p>
+                    <ul class="bullet-list-none">
+                      <li class="bullet-list__item bullet-list__item--white">
+                        от 1-го до 8-ми постов
+                      </li>
+                      <li class="bullet-list__item bullet-list__item--white">
+                        в контейнере, в рамном исполнении, в виде
+                        теплоизолированного шкафа
+                      </li>
+                      <li class="bullet-list__item bullet-list__item--white">
+                        контактные, бесконтактные и комбинированные
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <button class="wash-card__btn" aria-label="Подробнее">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="11"
+                      y1="4"
+                      x2="11"
+                      y2="18"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="4"
+                      y1="11"
+                      x2="18"
+                      y2="11"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 2: Туннельная -->
+            <article class="wash-card">
+              <img
+                src="assets/images/card2.jpg"
+                alt="Туннельные мойки WashTec для легковых автомобилей"
+                class="wash-card__img"
+              />
+              <div class="wash-card__overlay"></div>
+              <div class="wash-card__content">
+                <h3 class="wash-card__title">
+                  Туннельные мойки WashTec для легковых автомобилей
+                </h3>
+
+                <div class="wash-card__desc">
+                  <div class="wash-card__desc-line" aria-hidden="true"></div>
+                  <div class="wash-card__desc-text">
+                    <p>
+                      Все компоненты подбираются индивидуально, используя
+                      модульный принцип. Это позволяет спроектировать автомойку,
+                      которая хорошо подойдет под любой размер помещения, будет
+                      оснащена нужным оборудованием и обладать необходимой
+                      пропускной способностью
+                    </p>
+                  </div>
+                </div>
+
+                <button class="wash-card__btn" aria-label="Подробнее">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="11"
+                      y1="4"
+                      x2="11"
+                      y2="18"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="4"
+                      y1="11"
+                      x2="18"
+                      y2="11"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 3: Портальная легковые -->
+            <article class="wash-card">
+              <img
+                src="assets/images/card3.jpg"
+                alt="Портальные мойки WashTec для легковых автомобилей"
+                class="wash-card__img"
+              />
+              <div class="wash-card__overlay"></div>
+              <div class="wash-card__content">
+                <h3 class="wash-card__title">
+                  Портальные мойки WashTec для легковых автомобилей
+                </h3>
+
+                <div class="wash-card__desc">
+                  <div class="wash-card__desc-line" aria-hidden="true"></div>
+                  <div class="wash-card__desc-text">
+                    <p>
+                      Нужна портальная мойка для транспортной компании,
+                      автосервиса или АЗС? Подберем вариант с учетом
+                      потребностей вашего сегмента бизнеса. Дополнительные
+                      опции, различные варианты комплектации позволят
+                      сформировать оптимальный набор услуг.
+                    </p>
+                  </div>
+                </div>
+
+                <button class="wash-card__btn" aria-label="Подробнее">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="11"
+                      y1="4"
+                      x2="11"
+                      y2="18"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="4"
+                      y1="11"
+                      x2="18"
+                      y2="11"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 4: Портальная грузовые -->
+            <article class="wash-card">
+              <img
+                src="assets/images/card4.jpg"
+                alt="Портальные мойки WashTec для грузовых автомобилей"
+                class="wash-card__img"
+              />
+              <div class="wash-card__overlay"></div>
+              <div class="wash-card__content">
+                <h3 class="wash-card__title">
+                  Портальные мойки WashTec для грузовых автомобилей
+                </h3>
+
+                <div class="wash-card__desc">
+                  <div class="wash-card__desc-line" aria-hidden="true"></div>
+                  <div class="wash-card__desc-text">
+                    <p>
+                      Мойка грузовых автомобилей, автобусов, троллейбусов и
+                      спецтехники имеет свои особенности. Моечные машины WashTec
+                      позволяют достигнуть максимума эффективности как по
+                      качеству, так и по скорости мойки.
+                    </p>
+                  </div>
+                </div>
+
+                <button class="wash-card__btn" aria-label="Подробнее">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="11"
+                      y1="4"
+                      x2="11"
+                      y2="18"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="4"
+                      y1="11"
+                      x2="18"
+                      y2="11"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 5: Оборотное водоснабжение -->
+            <article class="wash-card">
+              <img
+                src="assets/images/card5.jpg"
+                alt="Системы оборотного водоснабжения WashTec"
+                class="wash-card__img"
+              />
+              <div class="wash-card__overlay"></div>
+              <div class="wash-card__content">
+                <h3 class="wash-card__title">
+                  Системы оборотного водоснабжения WashTec
+                </h3>
+
+                <div class="wash-card__desc">
+                  <div class="wash-card__desc-line" aria-hidden="true"></div>
+                  <div class="wash-card__desc-text">
+                    <p>
+                      Технологии очистки воды от WashTec позволяют снизить ее
+                      расход до минимума. Благодаря этому вы сокращаете затраты,
+                      ведь до 85% очищенной воды можно использовать повторно.
+                    </p>
+                  </div>
+                </div>
+
+                <button class="wash-card__btn" aria-label="Подробнее">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="11"
+                      y1="4"
+                      x2="11"
+                      y2="18"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="4"
+                      y1="11"
+                      x2="18"
+                      y2="11"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+
+            <!-- Card 6: Робот-мойка -->
+            <article class="wash-card">
+              <img
+                src="assets/images/card6.jpg"
+                alt="Робот-мойка"
+                class="wash-card__img"
+              />
+              <div class="wash-card__overlay"></div>
+              <div class="wash-card__content">
+                <h3 class="wash-card__title">Робот-мойка</h3>
+
+                <div class="wash-card__desc">
+                  <div class="wash-card__desc-line" aria-hidden="true"></div>
+                  <div class="wash-card__desc-text">
+                    <p>
+                      Робот-мойка - это бесконтактная автоматическая мойка
+                      легкового автомобиля нового поколения. Мытье
+                      осуществляется круглосуточно, без персонала. То есть
+                      прибыль вы получаете постоянно, при этом экономите деньги.
+                    </p>
+                  </div>
+                </div>
+
+                <button class="wash-card__btn" aria-label="Подробнее">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 22 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <line
+                      x1="11"
+                      y1="4"
+                      x2="11"
+                      y2="18"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="4"
+                      y1="11"
+                      x2="18"
+                      y2="11"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CITIES MAP ===== -->
+      <section
+        class="cities container"
+        id="cities"
+        aria-labelledby="cities-heading"
+      >
+        <div class="cities__content">
+          <h2 class="cities__heading" id="cities-heading">
+            Купить моечное оборудование производителей
+            <strong>WashTec,</strong><br />
+            <strong>Мой-ка! DS-Business и Агроснабтехсервис</strong>
+            в городах Беларуси
+          </h2>
+          <p class="cities__desc">
+            Портальные и туннельные мойки, мойки самообслуживания, робот-мойки
+            для легковых и грузовых автомобилей. Также комплектующие, запчасти и
+            аксессуары для любого моечного комплекса
+          </p>
+          <p class="cities__list">
+            <a href="#" class="cities__city-link">Брест</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" class="cities__city-link">Минск</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" class="cities__city-link">Витебск</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" class="cities__city-link">Гродно</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" class="cities__city-link">Гомель</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" class="cities__city-link">Могилев</a>
+          </p>
+        </div>
+        <div class="cities__map" aria-label="Карта городов Беларуси">
+          <img
+            src="assets/images/map.jpg"
+            alt="Карта городов Беларуси с отметками моечного оборудования"
+            class="cities__map-img"
+          />
+          <!-- City marker overlays -->
+          <div
+            class="cities__marker"
+            style="left: 17%; top: 78%"
+            aria-label="Брест"
+          >
+            <img src="assets/images/point.svg" alt="Брест" />
+          </div>
+          <div
+            class="cities__marker"
+            style="left: 43%; top: 42%"
+            aria-label="Минск"
+          >
+            <img src="assets/images/point.svg" alt="Минск" />
+          </div>
+          <div
+            class="cities__marker"
+            style="left: 60%; top: 15%"
+            aria-label="Витебск"
+          >
+            <img src="assets/images/point.svg" alt="Витебск" />
+          </div>
+          <div
+            class="cities__marker"
+            style="left: 18%; top: 42%"
+            aria-label="Гродно"
+          >
+            <img src="assets/images/point.svg" alt="Гродно" />
+          </div>
+          <div
+            class="cities__marker"
+            style="left: 70%; top: 75%"
+            aria-label="Гомель"
+          >
+            <img src="assets/images/point.svg" alt="Гомель" />
+          </div>
+          <div
+            class="cities__marker"
+            style="left: 72%; top: 50%"
+            aria-label="Могилев"
+          >
+            <img src="assets/images/point.svg" alt="Могилев" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROJECTS ===== -->
+      <section
+        class="projects container"
+        id="projects"
+        aria-labelledby="projects-heading"
+      >
+        <div class="projects__header">
+          <h2 class="projects__heading" id="projects-heading">Наши проекты</h2>
+          <a href="#" class="btn btn--proj">Все проекты</a>
+        </div>
+
+        <div class="projects__grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-card__img-wrap">
+              <img
+                src="assets/images/proj1.jpg"
+                alt="ОАО Газпром трансгаз Беларусь"
+                class="project-card__img"
+              />
+              <div class="project-card__img-overlay"></div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__title-row">
+                <div class="project-card__title-line" aria-hidden="true"></div>
+                <div>
+                  <p class="project-card__company">
+                    ОАО «Газпром трансгаз Беларусь»
+                  </p>
+                  <p class="project-card__location">
+                    (Республика Беларусь, Крупки)
+                  </p>
+                </div>
+              </div>
+              <ul class="bullet-list-none bullet-list--sm">
+                <li class="bullet-list__item">
+                  Портальная мойка для грузового транспорта WashTec MaxiWash
+                  Vario
+                </li>
+                <li class="bullet-list__item">
+                  Система оборотного водоснабжения MFА-20
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-card__img-wrap">
+              <img
+                src="assets/images/proj2.jpg"
+                alt="ПЧУП БелИстоТех"
+                class="project-card__img"
+              />
+              <div class="project-card__img-overlay"></div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__title-row">
+                <div class="project-card__title-line" aria-hidden="true"></div>
+                <div>
+                  <p class="project-card__company">ПЧУП «БелИстоТех»</p>
+                  <p class="project-card__location">
+                    (Республика Беларусь, Минск)
+                  </p>
+                </div>
+              </div>
+              <ul class="bullet-list-none bullet-list--sm">
+                <li class="bullet-list__item">
+                  Мойка самообслуживания WashTec на 5 постов
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-card__img-wrap">
+              <img
+                src="assets/images/proj3.jpg"
+                alt="ООО Бугинком"
+                class="project-card__img"
+              />
+              <div class="project-card__img-overlay"></div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__title-row">
+                <div class="project-card__title-line" aria-hidden="true"></div>
+                <div>
+                  <p class="project-card__company">ООО «Бугинком»</p>
+                  <p class="project-card__location">
+                    (Республика Беларусь, Брест)
+                  </p>
+                </div>
+              </div>
+              <ul class="bullet-list-none bullet-list--sm">
+                <li class="bullet-list__item">Туннельная мойка SL-50</li>
+                <li class="bullet-list__item">
+                  Система оборотного водоснабжения WashTec MFM-30
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="project-card">
+            <div class="project-card__img-wrap">
+              <img
+                src="assets/images/proj4.jpg"
+                alt="РУП Белоруснефть-Брестоблнефтепродукт"
+                class="project-card__img"
+              />
+              <div class="project-card__img-overlay"></div>
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__title-row">
+                <div class="project-card__title-line" aria-hidden="true"></div>
+                <div>
+                  <p class="project-card__company">
+                    РУП «Белоруснефть-Брестоблнефтепродукт»
+                  </p>
+                  <p class="project-card__location">
+                    (Республика Беларусь, Брест)
+                  </p>
+                </div>
+              </div>
+              <ul class="bullet-list-none bullet-list--sm">
+                <li class="bullet-list__item">
+                  Проездная мойка для грузового транспорта WashTec MaxiWash
+                  Express
+                </li>
+                <li class="bullet-list__item">
+                  Система оборотного водоснабжения WashTec MFM-30
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT FORM ===== -->
+      <section class="contact" id="contact" aria-labelledby="contact-heading">
+        <div class="contact__inner">
+          <div class="contact__left">
+            <h2 class="contact__heading" id="contact-heading">
+              Оставьте заявку на бесплатную консультацию специалиста компании
+              "Акватехносервис"
+            </h2>
+          </div>
+          <div class="contact__right">
+            <p class="contact__desc">
+              Наш специалист поможет подобрать моечное оборудование исходя из
+              ваших предпочтений и бюджета. Ответит на все ваши вопросы и
+              проконсультирует по нюансам эксплуатации моечного комплекса
+            </p>
+            <form class="contact__form" id="contact-form" novalidate>
+              <div class="contact__form-row">
+                <div class="contact__form-field">
+                  <input
+                    type="text"
+                    name="name"
+                    id="field-name"
+                    class="contact__input"
+                    placeholder="Имя"
+                  />
+                </div>
+                <div class="contact__form-field">
+                  <input
+                    type="tel"
+                    name="phone"
+                    id="field-phone"
+                    class="contact__input"
+                    placeholder="Телефон"
+                  />
+                </div>
+              </div>
+              <div class="contact__form-row">
+                <div class="contact__form-field">
+                  <input
+                    type="email"
+                    name="email"
+                    id="field-email"
+                    class="contact__input"
+                    placeholder="e-mail"
+                  />
+                </div>
+                <div class="contact__form-field">
+                  <input
+                    type="text"
+                    name="city"
+                    id="field-city"
+                    class="contact__input"
+                    placeholder="Город"
+                  />
+                </div>
+              </div>
+              <div class="contact__form-row contact__form-row--full">
+                <div class="contact__form-field contact__form-field--full">
+                  <textarea
+                    name="message"
+                    id="field-message"
+                    class="contact__input contact__textarea"
+                    placeholder="Сообщение"
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="contact__form-submit">
+                <button type="submit" class="btn btn--white">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <!-- Logo -->
+        <div class="footer__logo-wrap">
+          <img
+            src="assets/images/АкваТехноСервис-лого-2.png"
+            alt="АкваТехноСервис"
+            class="footer__logo"
+          />
+        </div>
+
+        <!-- Contacts -->
+        <div class="footer__contacts">
+          <div class="footer__phones">
+            <div class="footer__phone-row">
+              <img
+                src="assets/icons/А1.svg"
+                alt="А1"
+                class="footer__operator-logo"
+              />
+              <a href="tel:+375293658070" class="footer__phone"
+                >+375 29 365-80-70</a
+              >
+            </div>
+            <div class="footer__phone-row">
+              <img
+                src="assets/icons/mts.svg"
+                alt="МТС"
+                class="footer__operator-logo"
+              />
+              <a href="tel:+375333658070" class="footer__phone"
+                >+375 33 365-80-70</a
+              >
+            </div>
+          </div>
+          <div class="footer__hours-address">
+            <p class="footer__meta">
+              220012, Республика Беларусь, г. Минск, ул. Толбухина 2а, к. 320
+            </p>
+          </div>
+        </div>
+        <div class="footer__mail-hours">
+          <a href="mailto:sales@aqts.by" class="footer__phone">sales@aqts.by</a>
+          <p class="footer__meta">Пн-Пт с 9:00 до 18:00</p>
+        </div>
+
+        <div class="footer__divider" aria-hidden="true"></div>
+
+        <!-- Catalog -->
+        <nav class="footer__nav" aria-label="Каталог">
+          <a href="#about" class="footer__pages-link">Каталог</a>
+        </nav>
+
+        <!-- Pages -->
+        <nav class="footer__pages" aria-label="Страницы сайта">
+          <ul class="footer__pages-list">
+            <li>
+              <a href="#about" class="footer__pages-link"
+                >О компании ООО "Акватехносервис"</a
+              >
+            </li>
+            <li>
+              <a href="#projects" class="footer__pages-link"
+                >Реализованные проекты</a
+              >
+            </li>
+            <li><a href="#contact" class="footer__pages-link">Контакты</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

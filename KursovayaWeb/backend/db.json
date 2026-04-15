@@ -1,0 +1,142 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Портальная автомойка WashTec",
+      "category": "Автоматические мойки",
+      "description": "Современная портальная мойка для легковых автомобилей с бережной щеточной системой.",
+      "price": 45000,
+      "rating": 4.8,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/1987e9cdf-268f-4b32-bf6c-853a670043e08776.png"
+    },
+    {
+      "id": "2",
+      "title": "Туннельная конвейерная линия",
+      "category": "Автоматические мойки",
+      "description": "Высокопроизводительная туннельная мойка модульного типа для большого потока машин.",
+      "price": 120000,
+      "rating": 4.9,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/2987e9cdf-268f-4b32-bf6c-853a670043e07544.png"
+    },
+    {
+      "id": "3",
+      "title": "Оборудование для поста самообслуживания",
+      "category": "Самообслуживание",
+      "description": "Полный комплект для одного поста: АВД, консоли, пистолеты и пульт управления.",
+      "price": 7500,
+      "rating": 4.7,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/6987e9cdf-268f-4b32-bf6c-853a670043e03006.png"
+    },
+    {
+      "id": "4",
+      "title": "Робот-мойка (Бесконтактная)",
+      "category": "Автоматические мойки",
+      "description": "Автоматическая бесконтактная мойка с 3D-сканированием контуров автомобиля.",
+      "price": 38000,
+      "rating": 4.9,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/4987e9cdf-268f-4b32-bf6c-853a670043e08147.png"
+    },
+    {
+      "id": "5",
+      "title": "Система оборотного водоснабжения",
+      "category": "Очистка воды",
+      "description": "Установка для очистки и повторного использования до 85% сточных вод автомойки.",
+      "price": 12500,
+      "rating": 4.6,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/3987e9cdf-268f-4b32-bf6c-853a670043e04758.png"
+    },
+    {
+      "id": "6",
+      "title": "Установка обратного осмоса",
+      "category": "Очистка воды",
+      "description": "Система деминерализации воды для финального ополаскивания без пятен и разводов.",
+      "price": 4200,
+      "rating": 4.8,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/6987e9cdf-268f-4b32-bf6c-853a670043e06589.png"
+    },
+    {
+      "id": "7",
+      "title": "Двухтурбинный пылесос самообслуживания",
+      "category": "Доп. оборудование",
+      "description": "Мощный пылесос из нержавеющей стали с жетоноприемником для сухой уборки салона.",
+      "price": 2100,
+      "rating": 4.5,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/2987e9cdf-268f-4b32-bf6c-853a670043e03466.png"
+    },
+    {
+      "id": "8",
+      "title": "Аппарат высокого давления (АВД)",
+      "category": "Комплектующие",
+      "description": "Промышленная помпа с электродвигателем (200 бар, 15 л/мин) для интенсивной нагрузки.",
+      "price": 1100,
+      "rating": 4.7,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/6987e9cdf-268f-4b32-bf6c-853a670043e05203.png"
+    },
+    {
+      "id": "9",
+      "title": "Терминал оплаты для мойки",
+      "category": "Самообслуживание",
+      "description": "Уличный терминал с защитой от влаги IP65, поддержкой купюр, монет и банковских карт.",
+      "price": 3500,
+      "rating": 4.4,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/6987e9cdf-268f-4b32-bf6c-853a670043e05513.png"
+    },
+    {
+      "id": "10",
+      "title": "Поворотная консоль (Пантограф)",
+      "category": "Комплектующие",
+      "description": "Z-образная потолочная консоль 360° из нержавеющей стали для шлангов ВД.",
+      "price": 280,
+      "rating": 4.6,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/0987e9cdf-268f-4b32-bf6c-853a670043e06428.png"
+    },
+    {
+      "id": "11",
+      "title": "Дозирующий насос для химии",
+      "category": "Комплектующие",
+      "description": "Высокоточный электромагнитный насос-дозатор для шампуня и воска.",
+      "price": 190,
+      "rating": 4.3,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/2987e9cdf-268f-4b32-bf6c-853a670043e01634.png"
+    },
+    {
+      "id": "12",
+      "title": "Автохимия: Активная пена (20л)",
+      "category": "Расходные материалы",
+      "description": "Сильнопенящееся щелочное средство для бесконтактной мойки любых типов кузова.",
+      "price": 45,
+      "rating": 4.8,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/5987e9cdf-268f-4b32-bf6c-853a670043e09715.png"
+    },
+    {
+      "id": "13",
+      "title": "Аппарат для мойки ковриков",
+      "category": "Доп. оборудование",
+      "description": "Автоматическая машина для влажной чистки и сушки автомобильных ковриков.",
+      "price": 3200,
+      "rating": 4.5,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/1987e9cdf-268f-4b32-bf6c-853a670043e07138.png"
+    },
+    {
+      "id": "14",
+      "title": "Воздушный компрессор 100л",
+      "category": "Оборудование",
+      "description": "Поршневой масляный компрессор для обеспечения сжатым воздухом пневматических систем.",
+      "price": 850,
+      "rating": 4.4,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/8987e9cdf-268f-4b32-bf6c-853a670043e04810.png"
+    },
+    {
+      "id": "15",
+      "title": "Портальная мойка для грузовиков",
+      "category": "Автоматические мойки",
+      "description": "Крупногабаритная моечная установка для фур, автобусов и спецтехники.",
+      "price": 75000,
+      "rating": 4.9,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/1987e9cdf-268f-4b32-bf6c-853a670043e03025.png"
+    }
+  ],
+  "cart": [],
+  "favorites": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
