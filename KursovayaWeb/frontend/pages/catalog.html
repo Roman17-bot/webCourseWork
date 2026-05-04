@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebTech - Catalog</title>
+    <link rel="stylesheet" href="../css/pages/catalog.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/components.js"></script>
+    <script type="module" src="../js/pages/catalog.js"></script>
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <main class="catalog-page">
+      <div class="container catalog-container">
+        <div class="catalog-header">
+          <h2 class="products-title">
+            <span class="text-blue">Our</span> Services & Products
+          </h2>
+        </div>
+
+        <!-- Поиск, Сортировка, Категории -->
+        <div class="controls-section">
+          <div class="search-sort-bar">
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search by name or description..."
+            />
+
+            <div class="price-range">
+              <input
+                type="number"
+                id="minPrice"
+                class="search-input"
+                placeholder="Min Price ($)"
+              />
+              <input
+                type="number"
+                id="maxPrice"
+                class="search-input"
+                placeholder="Max Price ($)"
+              />
+            </div>
+
+            <select id="sortSelect" class="sort-select">
+              <option value="default">Default sorting</option>
+              <option value="price_asc">Price: Low to High</option>
+              <option value="price_desc">Price: High to Low</option>
+              <option value="title_asc">Name: A to Z</option>
+              <option value="rating_desc">Rating: High to Low</option>
+            </select>
+          </div>
+
+          <div class="categories" id="categoryContainer">
+            <button class="category-btn active" data-category="All">All</button>
+            <button class="category-btn" data-category="Автоматические мойки">
+              Автоматические мойки
+            </button>
+            <button class="category-btn" data-category="Комплектующие">
+              Комплектующие
+            </button>
+            <button class="category-btn" data-category="Доп. оборудование">
+              Доп. оборудование
+            </button>
+          </div>
+        </div>
+
+        <!-- контейнер для карточек -->
+        <div id="catalog-grid" class="catalog-grid"></div>
+
+        <!-- Пагинация -->
+        <div class="pagination" id="paginationControls">
+          <button id="prevPage" class="btn-outline method-btn">Previous</button>
+          <span id="pageInfo" class="page-info">Page 1 of 1</span>
+          <button id="nextPage" class="btn-outline method-btn">Next</button>
+        </div>
+      </div>
+    </main>
+    <app-footer></app-footer>
+  </body>
+</html>
