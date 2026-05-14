@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebTech - Cart</title>
+    <link rel="stylesheet" href="../css/pages/catalog.css" />
+    <link rel="stylesheet" href="../css/pages/cart.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/components.js"></script>
+    <script type="module" src="../js/pages/cart.js"></script>
+  </head>
+  <body>
+    <app-header></app-header>
+    <main class="catalog-page">
+      <div class="container">
+        <div class="catalog-header">
+          <h2 class="products-title">
+            <span class="text-blue">Shopping</span> Cart 🛒
+          </h2>
+        </div>
+
+        <div class="cart-layout">
+          <div id="cart-items" class="cart-items"></div>
+
+          <div class="cart-summary">
+            <h3 class="product-title">Order Summary</h3>
+            <div class="totals">
+              <span style="color: #5c6f87">Total Items:</span>
+              <span id="total-count" class="totals-count">0</span>
+            </div>
+            <div class="totals-price">
+              <span style="color: #5c6f87; font-size: 1.2rem"
+                >Total Price:</span
+              >
+              <span
+                id="total-price"
+                style="color: #377dff; font-size: 1.5rem; font-weight: bold"
+                >$0</span
+              >
+            </div>
+            <button id="checkout-btn" class="hero-button1" style="width: 100%">
+              Proceed to Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <app-footer></app-footer>
+  </body>
+</html>
