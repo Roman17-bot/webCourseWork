@@ -1,0 +1,295 @@
+.account-page {
+  padding-top: clamp(2rem, 5vw, 4.5rem);
+}
+
+.account-container {
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+.account-heading {
+  max-width: 760px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.account-eyebrow,
+.account-section-kicker {
+  margin-bottom: 0.55rem;
+  color: #377dff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
+.account-title {
+  max-width: none;
+  margin: 0 auto 1rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
+}
+
+.account-intro {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #5c6f87;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
+.account-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.account-profile,
+.account-orders {
+  margin-bottom: 0;
+}
+
+.account-section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1.75rem;
+}
+
+.account-section-title {
+  margin-bottom: 0;
+  line-height: 1.25;
+}
+
+.account-role {
+  flex-shrink: 0;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid #343d48;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.account-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+}
+
+.account-form-grid__wide {
+  grid-column: 1 / -1;
+}
+
+.account-password {
+  margin: 1.5rem 0 0;
+  padding: 1.25rem 0 0;
+  border: 0;
+  border-top: 1px solid #343d48;
+}
+
+.account-password legend {
+  padding-right: 0.75rem;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+}
+
+.account-password-note {
+  margin: 0.25rem 0 1rem;
+  color: #5c6f87;
+  font-size: 0.92rem;
+}
+
+.account-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.account-form-actions .hero-button1 {
+  max-height: none;
+  cursor: pointer;
+}
+
+.account-form-actions .hero-button1:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.account-status {
+  min-height: 1.4rem;
+  color: #5c6f87;
+  font-size: 0.95rem;
+}
+
+.account-status--success {
+  color: #6ad28f;
+}
+
+.account-status--error {
+  color: #ff7b7b;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-item {
+  padding: 1.35rem 0;
+  border-top: 1px solid #343d48;
+}
+
+.order-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.order-item__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.order-item__title {
+  margin-bottom: 0.25rem;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.order-item__date,
+.order-product__meta {
+  color: #5c6f87;
+  font-size: 0.9rem;
+}
+
+.order-total {
+  color: #377dff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.order-products {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.order-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+}
+
+.order-product__title {
+  color: #fff;
+  line-height: 1.35;
+}
+
+.account-empty {
+  padding: 1.5rem 0 0;
+  border-top: 1px solid #343d48;
+}
+
+.account-empty h3 {
+  margin-bottom: 0.65rem;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.account-empty p {
+  margin-bottom: 1rem;
+  color: #5c6f87;
+}
+
+.account-access {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .account-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .account-section-head,
+  .order-item__header {
+    flex-direction: column;
+  }
+
+  .account-role,
+  .order-total {
+    align-self: flex-start;
+  }
+
+  .account-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-form-actions {
+    align-items: stretch;
+  }
+
+  .account-form-actions .hero-button1 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .account-container {
+    padding-inline: 0.75rem;
+  }
+
+  .account-profile,
+  .account-orders {
+    padding: 1.25rem;
+  }
+
+  .order-product {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+
+html[data-theme="dark"] .account-page {
+  background: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+html[data-theme="dark"] .account-intro,
+html[data-theme="dark"] .account-password-note,
+html[data-theme="dark"] .account-status,
+html[data-theme="dark"] .order-item__date,
+html[data-theme="dark"] .order-product__meta,
+html[data-theme="dark"] .account-empty p {
+  color: var(--theme-muted);
+}
+
+html[data-theme="dark"] .account-role,
+html[data-theme="dark"] .account-password legend,
+html[data-theme="dark"] .order-item__title,
+html[data-theme="dark"] .order-product__title,
+html[data-theme="dark"] .account-empty h3 {
+  color: var(--theme-text);
+}
+
+html[data-theme="dark"] .account-role,
+html[data-theme="dark"] .account-password,
+html[data-theme="dark"] .order-item,
+html[data-theme="dark"] .account-empty {
+  border-color: var(--theme-border);
+}

@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebTech - Authentication</title>
+    <link rel="stylesheet" href="../css/pages/catalog.css" />
+    <link rel="stylesheet" href="../css/pages/auth.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/components.js"></script>
+    <script type="module" src="../js/pages/auth.js"></script>
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <main class="catalog-page">
+      <div class="container auth-container">
+        <!-- Табы -->
+        <div class="auth-tabs">
+          <button id="tab-login" class="category-btn tab-btn active">
+            Log In
+          </button>
+          <button id="tab-register" class="category-btn tab-btn">
+            Register
+          </button>
+        </div>
+
+        <!-- 1. Форма Входа -->
+        <div id="form-login-container" class="controls-section">
+          <h2 class="product-title auth-title">Welcome Back</h2>
+          <form id="login-form">
+            <div class="field-group">
+              <label class="input-required field-label"
+                >Email or Nickname</label
+              >
+              <input
+                type="text"
+                id="login-user"
+                class="search-input full-width"
+                placeholder="Enter Email or Nickname"
+                required
+              />
+            </div>
+            <div class="field-group field-group--lg">
+              <label class="input-required field-label">Password</label>
+              <input
+                type="password"
+                id="login-password"
+                class="search-input full-width"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+            <button type="submit" class="hero-button1 full-width">
+              Log In
+            </button>
+          </form>
+        </div>
+
+        <!-- 2. Форма Регистрации -->
+        <div id="form-register-container" class="controls-section hidden">
+          <h2 class="product-title auth-title">Create Account</h2>
+          <form id="register-form" novalidate>
+            <!-- ФИО -->
+            <div class="field-group">
+              <label class="input-required field-label"
+                >Last Name (Фамилия)</label
+              >
+              <input
+                type="text"
+                id="reg-lastname"
+                class="search-input full-width"
+                placeholder="Ivanov"
+                required
+              />
+              <span class="error-msg" id="err-lastname"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="input-required field-label">First Name (Имя)</label>
+              <input
+                type="text"
+                id="reg-firstname"
+                class="search-input full-width"
+                placeholder="Ivan"
+                required
+              />
+              <span class="error-msg" id="err-firstname"></span>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label"
+                >Patronymic (Отчество - Опционально)</label
+              >
+              <input
+                type="text"
+                id="reg-patronymic"
+                class="search-input full-width"
+                placeholder="Ivanovich"
+              />
+              <span class="error-msg" id="err-patronymic"></span>
+            </div>
+
+            <!-- Телефон -->
+            <div class="field-group">
+              <label class="input-required field-label"
+                >Phone (Belarus +375)</label
+              >
+              <input
+                type="tel"
+                id="reg-phone"
+                class="search-input full-width"
+                placeholder="+375 (29) 123-45-67"
+                required
+              />
+              <span class="error-msg" id="err-phone"></span>
+            </div>
+
+            <!-- Email -->
+            <div class="field-group">
+              <label class="input-required field-label">Email</label>
+              <input
+                type="email"
+                id="reg-email"
+                class="search-input full-width"
+                placeholder="example@example.com"
+                required
+              />
+              <span class="error-msg" id="err-email"></span>
+            </div>
+
+            <!-- Дата рождения -->
+            <div class="field-group">
+              <label class="input-required field-label"
+                >Birthdate (Minimum age: 16)</label
+              >
+              <input
+                type="date"
+                id="reg-birthdate"
+                class="search-input full-width"
+                required
+              />
+              <span class="error-msg" id="err-birthdate"></span>
+            </div>
+
+            <!-- Пароль: способ задания -->
+            <div class="field-group">
+              <label class="field-label">Password Method</label>
+              <div class="toggle-group">
+                <label class="radio-label">
+                  <input
+                    type="radio"
+                    name="pass-method"
+                    value="manual"
+                    checked
+                  />
+                  Set Password Manually
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="pass-method" value="auto" />
+                  Auto-Generate
+                </label>
+              </div>
+            </div>
+
+            <!-- Ручной Пароль -->
+            <div id="section-manual-password">
+              <div class="field-group">
+                <label class="input-required field-label">Password</label>
+                <input
+                  type="password"
+                  id="reg-password"
+                  class="search-input full-width"
+                  placeholder="Min. 8 chars, 1 Upper, 1 Special"
+                />
+                <span class="error-msg" id="err-password"></span>
+              </div>
+              <div class="field-group">
+                <label class="input-required field-label"
+                  >Confirm Password (Copy/Paste disabled)</label
+                >
+                <input
+                  type="password"
+                  id="reg-confirm-password"
+                  class="search-input full-width"
+                  placeholder="Repeat your password"
+                />
+                <span class="error-msg" id="err-confirm-password"></span>
+              </div>
+            </div>
+
+            <!-- Сгенерированный Пароль -->
+            <div
+              id="section-auto-password"
+              class="auto-password-section hidden"
+            >
+              <label class="field-label">Generated Password</label>
+              <input
+                type="text"
+                id="reg-auto-password-field"
+                class="search-input full-width auto-password-field"
+                readonly
+              />
+            </div>
+
+            <!-- Никнейм -->
+            <div class="field-group field-group--lg">
+              <label class="input-required field-label">Nickname</label>
+              <div class="nickname-row">
+                <input
+                  type="text"
+                  id="reg-nickname"
+                  class="search-input"
+                  readonly
+                  placeholder="Generate first..."
+                  required
+                />
+                <button
+                  type="button"
+                  id="btn-generate-nickname"
+                  class="btn-outline btn-generate"
+                >
+                  Generate
+                </button>
+              </div>
+              <span id="nickname-attempts-info" class="attempts-info"></span>
+              <span class="error-msg" id="err-nickname"></span>
+            </div>
+
+            <!-- Соглашение -->
+            <div class="field-group field-group--lg">
+              <label class="checkbox-label">
+                <input type="checkbox" id="reg-agreement" required />
+                <span>
+                  I agree to the
+                  <a href="#" id="link-open-agreement" class="agreement-link"
+                    >User Agreement</a
+                  >.
+                </span>
+              </label>
+              <span class="error-msg" id="err-agreement"></span>
+            </div>
+
+            <button
+              type="submit"
+              id="btn-register-submit"
+              class="hero-button1 full-width"
+              disabled
+            >
+              Register
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Модалка соглашения -->
+    <div id="agreement-modal" class="modal-overlay">
+      <div class="modal-content">
+        <h3 class="product-title modal-title">User Agreement</h3>
+        <div class="modal-body" id="agreement-body">
+          <p>
+            <strong
+              >Please read this User Agreement carefully. You must scroll to the
+              bottom to close this agreement.</strong
+            >
+          </p>
+          <br />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+            convallis mi ac metus efficitur sollicitudin. Proin feugiat congue
+            sodales. Donec porta est non nisl lobortis, quis pharetra ligula
+            pulvinar. Proin non scelerisque turpis.
+          </p>
+          <br />
+          <p>
+            Etiam vitae eros sodales, porta ex et, convallis sem. Aliquam id
+            nisl at turpis tincidunt vestibulum vitae finibus lectus. Vivamus
+            non ligula quis turpis consequat vulputate id eget lacus.
+          </p>
+          <br />
+          <p>
+            You agree to safeguard your password and use our services for lawful
+            purposes. WebTech reserve the right to ban accounts acting
+            maliciously against the database or catalog.
+          </p>
+        </div>
+        <button
+          type="button"
+          id="btn-close-agreement"
+          class="hero-button1 full-width"
+          disabled
+        >
+          Please read down to end...
+        </button>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </body>
+</html>
