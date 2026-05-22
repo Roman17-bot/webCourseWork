@@ -1,9 +1,16 @@
 import { debounce } from "../utils.js";
 import {
+  applyTranslations,
+  getLocalizedCategoryLabel,
+  onLanguageChange,
+  t,
+} from "../i18n.js";
+import {
   fetchProductsData,
   postActionData,
   checkItemExists,
   updateItemData,
+  getCurrentUser,
 } from "../api.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadProducts() {
     const loader = document.createElement("div");
     loader.className = "loader";
-    loader.textContent = "Loading products...";
+    loader.textContent = t("Loading products...");
     DOM.grid.replaceChildren(loader);
 
     try {
@@ -47,40 +54,59 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Fetch error:", error);
       const errorMsg = document.createElement("div");
       errorMsg.className = "not-found";
-      errorMsg.textContent = "Error loading data. Server might be down.";
+      errorMsg.textContent = t("Error loading data. Server might be down.");
       DOM.grid.replaceChildren(errorMsg);
     }
   }
 
   async function handleUserAction(endpoint, productData) {
     try {
-      // 1. Проверяем базу данных: есть ли уже этот товар?
-      const existingItem = await checkItemExists(endpoint, productData.id);
+      const activeUser = getCurrentUser();
+
+      console.log("Current session user:", activeUser);
+
+      if (!activeUser) {
+        alert(`⚠️ ${t("Please log in to add items to your cart or favorites.")}`);
+        window.location.href = "auth.html";
+        return;
+      }
+      console.log(
+        `Passing userId "${activeUser.id}" to checkItemExists & postActionData`,
+      );
+
+      const existingItem = await checkItemExists(
+        endpoint,
+        productData.id,
+        activeUser.id,
+      );
+      console.log(`Товар есть или нет "${existingItem}" `);
 
       if (endpoint === "favorites") {
         if (existingItem) {
-          // Блокируем дубль в избранном
-          alert("⚠️ This item is already in your favorites!");
+          alert(`⚠️ ${t("This item is already in your favorites!")}`);
           return;
         }
       } else if (endpoint === "cart") {
         if (existingItem) {
           const newQty = existingItem.quantity + 1;
           await updateItemData("cart", existingItem.id, { quantity: newQty });
-          alert(`✅ Increased quantity to ${newQty} in cart!`);
+          alert(`✅ ${t("Increased quantity to {count} in cart!", { count: newQty })}`);
           return;
         }
       }
 
-      await postActionData(endpoint, productData);
-      alert(`✅ Successfully added to ${endpoint}!`);
+      await postActionData(endpoint, productData, activeUser.id);
+      alert(`✅ ${t("Successfully added to {target}!", {
+        target: endpoint === "cart" ? t("Cart") : t("Favorites"),
+      })}`);
     } catch (error) {
       console.error(error);
-      alert(`❌ Failed to process action for ${endpoint}`);
+      alert(`❌ ${t("Failed to process action for {target}", {
+        target: endpoint === "cart" ? t("Cart") : t("Favorites"),
+      })}`);
     }
   }
 
-  // Программное создание карточки
   function createProductCard(item) {
     const card = document.createElement("article");
     card.className = "product-card";
@@ -131,14 +157,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnFav = document.createElement("button");
     btnFav.className = "btn-outline method-btn btn-fav";
     btnFav.style.flex = "1";
-    btnFav.textContent = "❤️ Fav";
+    btnFav.style.display = "flex";
+    btnFav.style.alignItems = "center";
+    btnFav.style.justifyContent = "center";
+    btnFav.style.gap = "5px";
+    const favImg = document.createElement("img");
+    favImg.src = "https://img.icons8.com/tiny-duotone/16/hearts.png";
+    favImg.alt = "";
+    const favText = document.createTextNode(t("Fav"));
+    btnFav.append(favImg, favText);
 
     const btnCart = document.createElement("button");
     btnCart.className = "btn-outline method-btn btn-cart";
     btnCart.style.flex = "1";
     btnCart.style.backgroundColor = "#377dff";
     btnCart.style.color = "#fff";
-    btnCart.textContent = "🛒 Cart";
+    btnCart.style.display = "flex";
+    btnCart.style.alignItems = "center";
+    btnCart.style.justifyContent = "center";
+    btnCart.style.gap = "5px";
+    const cartImg = document.createElement("img");
+    cartImg.src = "https://img.icons8.com/tiny-duotone/16/shopping-cart.png";
+    cartImg.alt = "";
+    const cartText = document.createTextNode(t("Cart"));
+    btnCart.append(cartImg, cartText);
 
     actionsDiv.append(btnFav, btnCart);
     contentDiv.append(categorySpan, titleH3, descP, footerDiv, actionsDiv);
@@ -151,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (products.length === 0) {
       const notFound = document.createElement("div");
       notFound.className = "not-found";
-      notFound.textContent = "No services found matching your criteria.";
+      notFound.textContent = t("No services found matching your criteria.");
       DOM.grid.replaceChildren(notFound);
       return;
     }
@@ -178,14 +220,14 @@ document.addEventListener("DOMContentLoaded", () => {
     categorySet.forEach((cat) => {
       const btn = document.createElement("button");
       btn.className = `category-btn ${cat === state.category ? "active" : ""}`;
-      btn.textContent = cat;
+      btn.textContent = getLocalizedCategoryLabel(cat);
       btn.dataset.category = cat;
 
       btn.addEventListener("click", (e) => {
         document
           .querySelectorAll(".category-btn")
           .forEach((b) => b.classList.remove("active"));
-        e.target.classList.add("active");
+        e.currentTarget.classList.add("active");
 
         state.category = cat;
         state.page = 1;
@@ -199,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updatePaginationUI() {
-    DOM.pageInfo.textContent = `Page ${state.page} of ${state.totalPages}`;
+    DOM.pageInfo.textContent = `${t("Page")} ${state.page} ${t("of")} ${state.totalPages}`;
     DOM.prevBtn.disabled = state.page <= 1;
     DOM.nextBtn.disabled = state.page >= state.totalPages;
   }
@@ -252,7 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Делегирование событий: вешаем один слушатель на весь грид
+    // Делегирование событий
     DOM.grid.addEventListener("click", (e) => {
       const card = e.target.closest(".product-card");
       if (!card) return;
@@ -270,4 +312,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initCategories();
   bindEvents();
   loadProducts();
+
+  onLanguageChange(() => {
+    applyTranslations(document);
+    initCategories();
+    loadProducts();
+  });
 });

@@ -1,78 +1,96 @@
+import { localizeRecord, localizeRecords, translatePlainText } from "./i18n.js";
+
 const API_URL = "http://localhost:3000";
+
+export function getCurrentUser() {
+  const user = localStorage.getItem("currentUser");
+  if (!user || user === "null" || user === "undefined") {
+    return null;
+  }
+  try {
+    return JSON.parse(user);
+  } catch (e) {
+    return null;
+  }
+}
 
 export async function fetchProductsData(state) {
   const url = new URL(`${API_URL}/products`);
-  const params = new URLSearchParams();
-
-  // 1. Пагинация
-  params.append("_page", state.page);
-  params.append("_per_page", state.limit);
-
-  // 2. Категория
-  if (state.category !== "All") {
-    params.append("category", state.category);
-  }
-
-  // 3. Поиск по нескольким полям (title и description)
-  if (state.searchQuery) {
-    const searchFilter = {
-      or: [
-        { title: { contains: state.searchQuery } },
-        { description: { contains: state.searchQuery } },
-      ],
-    };
-    params.append("_where", JSON.stringify(searchFilter));
-  }
-
-  // 4. Расширенная фильтрация по цене
-  if (state.minPrice) {
-    params.append("price:gte", state.minPrice);
-  }
-  if (state.maxPrice) {
-    params.append("price:lte", state.maxPrice);
-  }
-
-  // 5. Сортировка
-  if (state.sortField) {
-    const sortPrefix = state.sortOrder === "desc" ? "-" : "";
-    params.append("_sort", `${sortPrefix}${state.sortField}`);
-  }
-
-  url.search = params.toString();
-  console.log("🛠 [API CALL]:", url.toString());
-
   const response = await fetch(url);
 
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+  console.log("🛠 [API CALL]:", url.toString());
+
+  if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+  const rawData = await response.json();
+  const products = localizeRecords(rawData);
+
+  const search = state.searchQuery.trim().toLowerCase();
+  const minPrice = Number(state.minPrice);
+  const maxPrice = Number(state.maxPrice);
+
+  let filtered = products.filter((product) => {
+    const matchesCategory =
+      state.category === "All" ||
+      product._baseCategory === state.category ||
+      product.category === state.category ||
+      translatePlainText(product._baseCategory, "en") === state.category;
+
+    const matchesSearch =
+      !search ||
+      [product.title, product.description, product.category].some((value) =>
+        String(value ?? "").toLowerCase().includes(search),
+      );
+
+    const matchesMin = !state.minPrice || product.price >= minPrice;
+    const matchesMax = !state.maxPrice || product.price <= maxPrice;
+
+    return matchesCategory && matchesSearch && matchesMin && matchesMax;
+  });
+
+  if (state.sortField) {
+    filtered = [...filtered].sort((a, b) => {
+      const first = a[state.sortField];
+      const second = b[state.sortField];
+      const direction = state.sortOrder === "desc" ? -1 : 1;
+
+      if (typeof first === "string") {
+        return first.localeCompare(second) * direction;
+      }
+
+      return (Number(first) - Number(second)) * direction;
+    });
   }
 
-  const jsonResponse = await response.json();
-
-  const isPaginated = !Array.isArray(jsonResponse) && jsonResponse.data;
-
-  const data = isPaginated ? jsonResponse.data : jsonResponse;
-  const totalItems = isPaginated ? jsonResponse.items : data.length;
+  const totalItems = filtered.length;
+  const start = (state.page - 1) * state.limit;
+  const data = filtered.slice(start, start + state.limit);
 
   return { data, totalItems };
 }
 
-/**
- * Универсальная функция для отправки POST-запросов (Корзина/Избранное)
- */
-export async function postActionData(endpoint, productData) {
+export async function fetchAllProducts(options = {}) {
+  const response = await fetch(`${API_URL}/products`);
+  if (!response.ok) throw new Error("Failed to fetch all products");
+  const products = await response.json();
+  return options.raw ? products : localizeRecords(products);
+}
+
+export async function postActionData(endpoint, productData, userId) {
   const payload = {
     productId: productData.id,
-    title: productData.title,
+    title: productData._baseTitle || productData.title,
     price: productData.price,
     image: productData.image,
-    category: productData.category,
+    category: productData._baseCategory || productData.category,
+    i18n: productData.i18n,
+    userId: userId,
     addedAt: new Date().toISOString(),
   };
 
   if (endpoint === "cart") {
     payload.quantity = 1;
   }
+  console.log(`[API POST] Sending to /${endpoint}:`, payload);
 
   const response = await fetch(`${API_URL}/${endpoint}`, {
     method: "POST",
@@ -84,18 +102,17 @@ export async function postActionData(endpoint, productData) {
   return response.json();
 }
 
-/**
- * Получение всех товаров из конкретного эндпоинта (cart или favorites)
- */
-export async function fetchCollectionData(endpoint) {
-  const response = await fetch(`${API_URL}/${endpoint}`);
+export async function fetchCollectionData(endpoint, userId = null, options = {}) {
+  let url = `${API_URL}/${endpoint}`;
+  if (userId) {
+    url += `?userId=${userId}`;
+  }
+  const response = await fetch(url);
   if (!response.ok) throw new Error(`Failed to fetch ${endpoint}`);
-  return response.json();
+  const data = await response.json();
+  return options.raw ? data : localizeRecords(data);
 }
 
-/**
- * Удаление элемента по ID из базы (DELETE)
- */
 export async function deleteItemData(endpoint, id) {
   const response = await fetch(`${API_URL}/${endpoint}/${id}`, {
     method: "DELETE",
@@ -103,9 +120,6 @@ export async function deleteItemData(endpoint, id) {
   if (!response.ok) throw new Error(`Failed to delete from ${endpoint}`);
 }
 
-/**
- * Обновление данных элемента (PATCH - например, изменение quantity в корзине)
- */
 export async function updateItemData(endpoint, id, updates) {
   const response = await fetch(`${API_URL}/${endpoint}/${id}`, {
     method: "PATCH",
@@ -116,23 +130,107 @@ export async function updateItemData(endpoint, id, updates) {
   return response.json();
 }
 
-export async function checkItemExists(endpoint, productId) {
+export async function checkItemExists(endpoint, productId, userId) {
+  const filterQuery = JSON.stringify({
+    userId: { eq: userId },
+    productId: { eq: productId },
+  });
+
   const response = await fetch(
-    `${API_URL}/${endpoint}?_where={productId:${productId}}`,
+    `${API_URL}/${endpoint}?_where=${encodeURIComponent(filterQuery)}`,
   );
 
-  if (!response.ok) {
-    throw new Error(`Failed to check item in ${endpoint}`);
-  }
+  if (!response.ok) throw new Error(`Failed to check item in ${endpoint}`);
+  const data = await response.json();
 
-  const jsonResponse = await response.json();
-
-  // Безопасное извлечение массива
-  const data =
-    !Array.isArray(jsonResponse) && jsonResponse.data
-      ? jsonResponse.data
-      : jsonResponse;
-
-  // Если массив не пустой, возвращаем найденный объект, иначе null
   return data.length > 0 ? data[0] : null;
+}
+
+export async function fetchUsers() {
+  const response = await fetch(`${API_URL}/users`);
+  if (!response.ok) throw new Error("Failed to fetch users");
+  return response.json();
+}
+
+export async function fetchUserById(id) {
+  const response = await fetch(`${API_URL}/users/${id}`);
+  if (!response.ok) throw new Error("Failed to fetch user");
+  return response.json();
+}
+
+export async function createUser(userData) {
+  const response = await fetch(`${API_URL}/users`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData),
+  });
+  if (!response.ok) throw new Error("Failed to create user");
+  return response.json();
+}
+
+export async function updateUser(id, userData) {
+  const response = await fetch(`${API_URL}/users/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData),
+  });
+  if (!response.ok) throw new Error("Failed to update user");
+  return response.json();
+}
+
+export async function createOrder(orderData) {
+  const payload = {
+    ...orderData,
+    products: orderData.products.map((product) => ({
+      ...product,
+      title: product._baseTitle || product.title,
+      category: product._baseCategory || product.category,
+      i18n: product.i18n,
+    })),
+  };
+
+  const response = await fetch(`${API_URL}/orders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!response.ok) throw new Error("Failed to create order");
+  return response.json();
+}
+
+export async function createFeedback(feedbackData) {
+  const response = await fetch(`${API_URL}/feedback`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(feedbackData),
+  });
+  if (!response.ok) throw new Error("Failed to create feedback");
+  return response.json();
+}
+
+export async function addProduct(productData) {
+  const response = await fetch(`${API_URL}/products`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(productData),
+  });
+  if (!response.ok) throw new Error("Failed to add product");
+  return response.json();
+}
+
+export async function editProduct(id, productData) {
+  const response = await fetch(`${API_URL}/products/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(productData),
+  });
+  if (!response.ok) throw new Error("Failed to edit product");
+  return response.json();
+}
+
+export async function deleteProduct(id) {
+  const response = await fetch(`${API_URL}/products/${id}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) throw new Error("Failed to delete product");
 }

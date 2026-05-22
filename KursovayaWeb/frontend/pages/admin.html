@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebTech - Admin Panel</title>
+    <link rel="stylesheet" href="../css/pages/catalog.css" />
+    <link rel="stylesheet" href="../css/pages/admin.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/components.js"></script>
+    <script type="module" src="../js/pages/admin.js"></script>
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <main class="catalog-page">
+      <div class="container admin-container">
+        <div class="catalog-header">
+          <h2 class="products-title admin-title">
+            <span class="text-blue">Admin</span> Console
+          </h2>
+        </div>
+
+        <div id="admin-main-view" class="admin-grid">
+          <!-- Левая колонка: CRUD товаров -->
+          <div class="controls-section">
+            <h3 class="product-title section-title">Manage Products</h3>
+
+            <div class="field-group field-group--lg">
+              <label class="field-label">Operation</label>
+              <select id="crud-mode" class="sort-select full-width">
+                <option value="add">Add New Product</option>
+                <option value="edit">Edit Existing Product</option>
+              </select>
+            </div>
+
+            <div
+              id="select-product-to-edit-container"
+              class="field-group field-group--lg hidden"
+            >
+              <label class="input-required field-label"
+                >Select Product to Edit</label
+              >
+              <select id="edit-select" class="sort-select full-width">
+                <option value="" disabled selected>
+                  -- Loading products --
+                </option>
+              </select>
+            </div>
+
+            <form id="product-form" novalidate>
+              <div class="field-group">
+                <label class="input-required field-label">Product Title</label>
+                <input
+                  type="text"
+                  id="p-title"
+                  class="search-input full-width"
+                  required
+                />
+                <span class="error-msg" id="err-title"></span>
+              </div>
+
+              <div class="field-group">
+                <label class="input-required field-label">Category</label>
+                <select id="p-category" class="sort-select full-width" required>
+                  <option value="" disabled selected>
+                    -- Select category --
+                  </option>
+                  <option value="Автоматические мойки">
+                    Автоматические мойки
+                  </option>
+                  <option value="Комплектующие">Комплектующие</option>
+                  <option value="Доп. оборудование">Доп. оборудование</option>
+                </select>
+                <span class="error-msg" id="err-category"></span>
+              </div>
+
+              <div class="field-group">
+                <label class="input-required field-label">Price ($)</label>
+                <input
+                  type="number"
+                  id="p-price"
+                  class="search-input full-width"
+                  min="1"
+                  required
+                />
+                <span class="error-msg" id="err-price"></span>
+              </div>
+
+              <div class="field-group">
+                <label class="input-required field-label">Image URL</label>
+                <input
+                  type="url"
+                  id="p-image"
+                  class="search-input full-width"
+                  required
+                />
+                <span class="error-msg" id="err-image"></span>
+              </div>
+
+              <div class="field-group field-group--lg">
+                <label class="input-required field-label">Description</label>
+                <textarea
+                  id="p-desc"
+                  class="search-input textarea-admin full-width"
+                  required
+                ></textarea>
+                <span class="error-msg" id="err-desc"></span>
+              </div>
+
+              <button
+                type="submit"
+                id="btn-submit-product"
+                class="hero-button1 full-width"
+                disabled
+              >
+                Add Product
+              </button>
+              <button
+                type="button"
+                id="btn-delete-product"
+                class="hero-button2 btn-danger full-width hidden"
+              >
+                Delete Product
+              </button>
+            </form>
+          </div>
+
+          <!-- Правая колонка: Управление отзывами -->
+          <div class="controls-section">
+            <h3 class="product-title section-title">Review Moderation</h3>
+
+            <div class="filters-grid">
+              <div>
+                <label class="field-label field-label--sm"
+                  >Filter by Service</label
+                >
+                <select
+                  id="review-filter-product"
+                  class="sort-select full-width"
+                >
+                  <option value="all">All Services</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label field-label--sm"
+                  >Filter by Client</label
+                >
+                <select id="review-filter-user" class="sort-select full-width">
+                  <option value="all">All Clients</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Контейнер со списком отзывов -->
+            <div id="admin-reviews-list" class="reviews-list">
+              <!-- Карточки отзывов вставляются программно -->
+            </div>
+          </div>
+        </div>
+
+        <div id="no-admin-view" class="not-found access-denied hidden">
+          <h3>⚠️ Access Forbidden</h3>
+          <p>
+            This console is restricted to administrators only. You will be
+            redirected to home page.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <app-footer></app-footer>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Личный кабинет — АкваТехноСервис</title>
+    <link rel="stylesheet" href="../css/pages/catalog.css" />
+    <link rel="stylesheet" href="../css/pages/auth.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/pages/account.css" />
+    <script type="module" src="../js/components.js"></script>
+    <script type="module" src="../js/pages/account.js"></script>
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <main class="catalog-page account-page" aria-labelledby="account-title">
+      <div class="container account-container">
+        <header class="account-heading">
+          <p class="account-eyebrow">Личный кабинет</p>
+          <h1 id="account-title" class="products-title account-title">
+            Профиль и история заказов
+          </h1>
+          <p class="account-intro">
+            Управляйте контактными данными аккаунта и просматривайте оформленные
+            заказы в одном месте.
+          </p>
+        </header>
+
+        <section
+          id="account-auth-message"
+          class="not-found account-access"
+          aria-live="polite"
+          hidden
+        ></section>
+
+        <div id="account-content" class="account-layout">
+          <section class="controls-section account-profile" aria-labelledby="profile-title">
+            <div class="account-section-head">
+              <div>
+                <p class="account-section-kicker">Данные аккаунта</p>
+                <h2 id="profile-title" class="product-title account-section-title">
+                  Контактная информация
+                </h2>
+              </div>
+              <p id="account-role" class="account-role"></p>
+            </div>
+
+            <form id="account-form" novalidate>
+              <div class="account-form-grid">
+                <div class="field-group">
+                  <label for="account-lastname" class="input-required field-label">
+                    Фамилия
+                  </label>
+                  <input
+                    type="text"
+                    id="account-lastname"
+                    class="search-input full-width"
+                    autocomplete="family-name"
+                    required
+                  />
+                  <span class="error-msg" id="err-lastname"></span>
+                </div>
+
+                <div class="field-group">
+                  <label for="account-firstname" class="input-required field-label">
+                    Имя
+                  </label>
+                  <input
+                    type="text"
+                    id="account-firstname"
+                    class="search-input full-width"
+                    autocomplete="given-name"
+                    required
+                  />
+                  <span class="error-msg" id="err-firstname"></span>
+                </div>
+
+                <div class="field-group">
+                  <label for="account-patronymic" class="field-label">
+                    Отчество
+                  </label>
+                  <input
+                    type="text"
+                    id="account-patronymic"
+                    class="search-input full-width"
+                    autocomplete="additional-name"
+                  />
+                  <span class="error-msg" id="err-patronymic"></span>
+                </div>
+
+                <div class="field-group">
+                  <label for="account-phone" class="input-required field-label">
+                    Телефон
+                  </label>
+                  <input
+                    type="tel"
+                    id="account-phone"
+                    class="search-input full-width"
+                    autocomplete="tel"
+                    placeholder="+375 (29) 123-45-67"
+                    required
+                  />
+                  <span class="error-msg" id="err-phone"></span>
+                </div>
+
+                <div class="field-group">
+                  <label for="account-email" class="input-required field-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="account-email"
+                    class="search-input full-width"
+                    autocomplete="email"
+                    required
+                  />
+                  <span class="error-msg" id="err-email"></span>
+                </div>
+
+                <div class="field-group">
+                  <label for="account-birthdate" class="input-required field-label">
+                    Дата рождения
+                  </label>
+                  <input
+                    type="date"
+                    id="account-birthdate"
+                    class="search-input full-width"
+                    required
+                  />
+                  <span class="error-msg" id="err-birthdate"></span>
+                </div>
+
+                <div class="field-group account-form-grid__wide">
+                  <label for="account-nickname" class="input-required field-label">
+                    Никнейм
+                  </label>
+                  <input
+                    type="text"
+                    id="account-nickname"
+                    class="search-input full-width"
+                    autocomplete="username"
+                    required
+                  />
+                  <span class="error-msg" id="err-nickname"></span>
+                </div>
+              </div>
+
+              <fieldset class="account-password">
+                <legend>Смена пароля</legend>
+                <p class="account-password-note">
+                  Оставьте поля пустыми, если не хотите менять пароль.
+                </p>
+
+                <div class="account-form-grid">
+                  <div class="field-group">
+                    <label for="account-password" class="field-label">
+                      Новый пароль
+                    </label>
+                    <input
+                      type="password"
+                      id="account-password"
+                      class="search-input full-width"
+                      autocomplete="new-password"
+                      placeholder="8-20 символов"
+                    />
+                    <span class="error-msg" id="err-password"></span>
+                  </div>
+
+                  <div class="field-group">
+                    <label for="account-confirm-password" class="field-label">
+                      Повторите пароль
+                    </label>
+                    <input
+                      type="password"
+                      id="account-confirm-password"
+                      class="search-input full-width"
+                      autocomplete="new-password"
+                    />
+                    <span class="error-msg" id="err-confirm-password"></span>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="account-form-actions">
+                <button type="submit" id="account-save" class="hero-button1">
+                  Сохранить изменения
+                </button>
+                <p id="account-status" class="account-status" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </section>
+
+          <section class="controls-section account-orders" aria-labelledby="orders-title">
+            <div class="account-section-head">
+              <div>
+                <p class="account-section-kicker">Заказы</p>
+                <h2 id="orders-title" class="product-title account-section-title">
+                  История заказов
+                </h2>
+              </div>
+              <p id="orders-count" class="account-role"></p>
+            </div>
+
+            <div id="orders-list" class="orders-list" aria-live="polite"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <app-footer></app-footer>
+  </body>
+</html>

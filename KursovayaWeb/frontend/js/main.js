@@ -1,3 +1,5 @@
+import { t } from "./i18n.js";
+
 (function () {
   "use strict";
 
@@ -6,8 +8,9 @@
      ------------------------------------------------- */
   const hamburgerBtn = document.getElementById("hamburger-btn");
   const navMenu = document.getElementById("nav-menu");
+  const isComponentHeader = hamburgerBtn?.closest("app-header");
 
-  if (hamburgerBtn && navMenu) {
+  if (hamburgerBtn && navMenu && !isComponentHeader) {
     hamburgerBtn.addEventListener("click", function () {
       const isExpanded = this.getAttribute("aria-expanded") === "true";
 
@@ -158,52 +161,276 @@
   }
 
   /* -------------------------------------------------
-     3. CONTACT FORM — BASIC VALIDATION
+     3. CONTACT FORM — VALIDATION AND REQUESTS
      ------------------------------------------------- */
   var contactForm = document.getElementById("contact-form");
+  var CONTACT_REQUESTS_API = "http://localhost:3000/contactRequests";
 
   if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+    var contactFields = {
+      name: contactForm.querySelector('[name="name"]'),
+      phone: contactForm.querySelector('[name="phone"]'),
+      email: contactForm.querySelector('[name="email"]'),
+      city: contactForm.querySelector('[name="city"]'),
+      message: contactForm.querySelector('[name="message"]'),
+    };
+    var contactStatus = document.getElementById("contact-form-status");
+    var submitBtn = contactForm.querySelector('[type="submit"]');
+    var originalSubmitText = "Отправить";
+    var PHONE_PREFIX = "+375 ";
 
-      var name = contactForm.querySelector('[name="name"]');
-      var phone = contactForm.querySelector('[name="phone"]');
-      var email = contactForm.querySelector('[name="email"]');
+    function getCurrentContactUser() {
+      var userJson = localStorage.getItem("currentUser");
+      if (!userJson || userJson === "null" || userJson === "undefined") {
+        return null;
+      }
+
+      try {
+        return JSON.parse(userJson);
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function getPhoneDigits(value) {
+      var digits = value.replace(/\D/g, "");
+
+      if (digits.indexOf("375") === 0) {
+        digits = digits.slice(3);
+      }
+
+      return digits.slice(0, 9);
+    }
+
+    function formatPhoneValue(value) {
+      var digits = getPhoneDigits(value);
+      var operatorCode = digits.slice(0, 2);
+      var number = digits.slice(2);
+      var formatted = "+375";
+
+      if (operatorCode.length > 0) {
+        formatted += " (" + operatorCode;
+      } else {
+        return PHONE_PREFIX;
+      }
+
+      if (operatorCode.length === 2) {
+        formatted += ")";
+      }
+
+      if (number.length > 0) {
+        formatted += " " + number.slice(0, 3);
+      }
+
+      if (number.length > 3) {
+        formatted += "-" + number.slice(3, 5);
+      }
+
+      if (number.length > 5) {
+        formatted += "-" + number.slice(5, 7);
+      }
+
+      return formatted;
+    }
+
+    function hasContactFieldValue(fieldName) {
+      var field = contactFields[fieldName];
+      if (!field) return false;
+
+      if (fieldName === "phone") {
+        return getPhoneDigits(field.value).length > 0;
+      }
+
+      return field.value.trim().length > 0;
+    }
+
+    function updateContactFieldState(fieldName) {
+      var field = contactFields[fieldName];
+      if (!field) return;
+
+      field.classList.toggle(
+        "contact__input--filled",
+        hasContactFieldValue(fieldName),
+      );
+    }
+
+    function updateAllContactFieldStates() {
+      Object.keys(contactFields).forEach(updateContactFieldState);
+    }
+
+    function getContactError(fieldName, value) {
+      var trimmed = value.trim();
+      var nameRegex = /^[A-Za-zА-Яа-яЁёІіЎў\s.'-]+$/;
+      var phoneRegex =
+        /^\+375\s?\(?(25|29|33|44)\)?\s?\d{3}[-\s]?\d{2}[-\s]?\d{2}$/;
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!trimmed) {
+        return t("Заполните поле.");
+      }
+
+      if (fieldName === "name") {
+        if (trimmed.length < 2) return t("Введите имя не короче 2 символов.");
+        if (!nameRegex.test(trimmed)) return t("Используйте только буквы.");
+      }
+
+      if (fieldName === "phone" && !phoneRegex.test(trimmed)) {
+        return t("Введите белорусский номер: +375 (29) 123-45-67.");
+      }
+
+      if (fieldName === "email" && !emailRegex.test(trimmed)) {
+        return t("Введите корректный e-mail.");
+      }
+
+      if (fieldName === "city") {
+        if (trimmed.length < 2) return t("Введите город не короче 2 символов.");
+        if (!nameRegex.test(trimmed)) return t("Используйте только буквы.");
+      }
+
+      if (fieldName === "message") {
+        if (trimmed.length < 10) {
+          return t("Сообщение должно быть не короче 10 символов.");
+        }
+        if (trimmed.length > 1000) {
+          return t("Сократите сообщение до 1000 символов.");
+        }
+      }
+
+      return "";
+    }
+
+    function setContactFieldError(fieldName, message) {
+      var field = contactFields[fieldName];
+      var errorEl = document.getElementById("field-" + fieldName + "-error");
+      if (!field || !errorEl) return;
+
+      field.classList.toggle("contact__input--error", Boolean(message));
+      field.setAttribute("aria-invalid", message ? "true" : "false");
+      errorEl.textContent = message;
+    }
+
+    function setContactStatus(message, isError) {
+      if (!contactStatus) return;
+      contactStatus.textContent = message;
+      contactStatus.classList.toggle("contact__form-status--error", Boolean(isError));
+    }
+
+    function validateContactForm() {
       var isValid = true;
 
-      // Simple validation
-      [name, phone, email].forEach(function (field) {
-        if (field && field.value.trim() === "") {
-          field.style.borderColor = "#ff6b6b";
-          isValid = false;
+      Object.keys(contactFields).forEach(function (fieldName) {
+        var field = contactFields[fieldName];
+        var error = field ? getContactError(fieldName, field.value) : "";
 
-          field.addEventListener("input", function clearError() {
-            field.style.borderColor = "";
-            field.removeEventListener("input", clearError);
-          });
-        }
+        setContactFieldError(fieldName, error);
+        if (error) isValid = false;
       });
 
-      if (isValid) {
-        // Simulate form submission success
-        var submitBtn = contactForm.querySelector('[type="submit"]');
-        var originalText = submitBtn ? submitBtn.textContent : "Отправить";
+      return isValid;
+    }
 
-        if (submitBtn) {
-          submitBtn.textContent = "Отправлено!";
-          submitBtn.disabled = true;
-          submitBtn.style.opacity = "0.8";
+    function buildContactPayload() {
+      var currentUser = getCurrentContactUser();
+
+      return {
+        name: contactFields.name.value.trim(),
+        phone: contactFields.phone.value.trim(),
+        email: contactFields.email.value.trim(),
+        city: contactFields.city.value.trim(),
+        message: contactFields.message.value.trim(),
+        status: "new",
+        source: "main-contact-form",
+        createdAt: new Date().toISOString(),
+        userId: currentUser ? currentUser.id : null,
+        userNickname: currentUser ? currentUser.nickname : null,
+      };
+    }
+
+    Object.keys(contactFields).forEach(function (fieldName) {
+      var field = contactFields[fieldName];
+      if (!field) return;
+
+      field.addEventListener("input", function () {
+        if (fieldName === "phone") {
+          field.value = formatPhoneValue(field.value);
+          field.setSelectionRange(field.value.length, field.value.length);
         }
 
-        // Reset after 3 seconds
-        setTimeout(function () {
-          contactForm.reset();
-          if (submitBtn) {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = "";
-          }
-        }, 3000);
+        setContactFieldError(fieldName, "");
+        setContactStatus("", false);
+        updateContactFieldState(fieldName);
+      });
+
+      field.addEventListener("blur", function () {
+        if (fieldName === "phone" && !getPhoneDigits(field.value).length) {
+          field.value = PHONE_PREFIX;
+        }
+
+        updateContactFieldState(fieldName);
+      });
+    });
+
+    if (contactFields.phone) {
+      contactFields.phone.value = PHONE_PREFIX;
+      contactFields.phone.addEventListener("focus", function () {
+        if (!contactFields.phone.value.trim()) {
+          contactFields.phone.value = PHONE_PREFIX;
+        }
+      });
+    }
+
+    updateAllContactFieldStates();
+
+    contactForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      setContactStatus("", false);
+
+      if (!validateContactForm()) {
+        setContactStatus(t("Проверьте поля формы."), true);
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.textContent = t("Отправляем...");
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.8";
+      }
+
+      try {
+        var response = await fetch(CONTACT_REQUESTS_API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(buildContactPayload()),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to send contact request");
+        }
+
+        contactForm.reset();
+        if (contactFields.phone) {
+          contactFields.phone.value = PHONE_PREFIX;
+        }
+        Object.keys(contactFields).forEach(function (fieldName) {
+          setContactFieldError(fieldName, "");
+        });
+        updateAllContactFieldStates();
+        setContactStatus(
+          t("Заявка отправлена. Специалист компании свяжется с вами."),
+          false,
+        );
+      } catch (error) {
+        console.error(error);
+        setContactStatus(
+          t("Не удалось отправить заявку. Проверьте, что json-server запущен."),
+          true,
+        );
+      } finally {
+        if (submitBtn) {
+          submitBtn.textContent = t(originalSubmitText);
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = "";
+        }
       }
     });
   }

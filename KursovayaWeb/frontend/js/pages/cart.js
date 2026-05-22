@@ -1,4 +1,11 @@
-import { fetchCollectionData, deleteItemData, updateItemData } from "../api.js";
+import {
+  fetchCollectionData,
+  deleteItemData,
+  updateItemData,
+  createOrder,
+  getCurrentUser,
+} from "../api.js";
+import { formatCurrency, onLanguageChange, t } from "../i18n.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const DOM = {
@@ -9,20 +16,28 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   let cartData = [];
+  const activeUser = getCurrentUser();
 
-  // Инициализация корзины
   async function loadCart() {
+    if (!activeUser) {
+      DOM.container.innerHTML = `
+        <div class="not-found">
+          ${t("Please log in to see your cart.")}<br><br>
+          <a href="auth.html" class="btn-outline">${t("Log In")}</a>
+        </div>`;
+      return;
+    }
+
     try {
-      cartData = await fetchCollectionData("cart");
+      cartData = await fetchCollectionData("cart", activeUser.id);
       renderCart();
       calculateTotals();
     } catch (error) {
       console.error(error);
-      DOM.container.innerHTML = `<div class="not-found">Error loading cart.</div>`;
+      DOM.container.innerHTML = `<div class="not-found">${t("Error loading cart.")}</div>`;
     }
   }
 
-  // Расчет итогов
   function calculateTotals() {
     const total = cartData.reduce(
       (sum, item) => sum + item.price * item.quantity,
@@ -30,66 +45,48 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     const count = cartData.reduce((sum, item) => sum + item.quantity, 0);
 
-    DOM.totalPrice.textContent = `$${total}`;
+    DOM.totalPrice.textContent = formatCurrency(total);
     DOM.totalCount.textContent = count;
-
-    // Блокируем кнопку покупки, если корзина пуста
     DOM.checkoutBtn.disabled = cartData.length === 0;
     DOM.checkoutBtn.style.opacity = cartData.length === 0 ? "0.5" : "1";
   }
 
   function renderCart() {
     if (cartData.length === 0) {
-      const emptyMsg = document.createElement("div");
-      emptyMsg.className = "not-found";
-
-      const textNode = document.createTextNode("Your cart is empty. ");
-      const br1 = document.createElement("br");
-      const br2 = document.createElement("br");
-
-      const link = document.createElement("a");
-      link.href = "catalog.html";
-      link.className = "btn-outline";
-      link.style.color = "#5c6f87";
-      link.textContent = "Go to Catalog";
-
-      emptyMsg.append(textNode, br1, br2, link);
-      DOM.container.replaceChildren(emptyMsg);
+      DOM.container.innerHTML = `
+        <div class="not-found">
+          ${t("Your cart is empty.")} <br><br>
+          <a href="catalog.html" class="btn-outline">${t("Go to Catalog")}</a>
+        </div>`;
       return;
     }
 
     const fragment = document.createDocumentFragment();
 
     cartData.forEach((item) => {
-      // Главный контейнер строки
       const row = document.createElement("div");
       row.className = "cart-item";
       row.dataset.dbId = item.id;
-      row.dataset.qty = item.quantity;
 
-      // Изображение
       const img = document.createElement("img");
       img.src = item.image;
       img.alt = item.title;
 
-      // Центральный блок с информацией (Название и Цена)
       const infoDiv = document.createElement("div");
       infoDiv.style.flex = "1";
 
       const titleH4 = document.createElement("h4");
       titleH4.style.color = "#fff";
       titleH4.style.fontFamily = "Montserrat";
-      titleH4.style.fontSize = "1.1rem";
       titleH4.textContent = item.title;
 
       const priceSpan = document.createElement("span");
       priceSpan.style.color = "#377dff";
       priceSpan.style.fontWeight = "bold";
-      priceSpan.textContent = `$${item.price}`;
+      priceSpan.textContent = formatCurrency(item.price);
 
       infoDiv.append(titleH4, priceSpan);
 
-      // Блок управления количеством (+, значение, -)
       const qtyDiv = document.createElement("div");
       qtyDiv.className = "qty-controls";
 
@@ -109,22 +106,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       qtyDiv.append(minusBtn, qtySpan, plusBtn);
 
-      // Кнопка удаления (Корзина)
       const removeBtn = document.createElement("button");
       removeBtn.className = "btn-outline btn-remove";
       removeBtn.style.borderColor = "#ff4d4f";
       removeBtn.style.color = "#ff4d4f";
-      removeBtn.style.padding = "0.5rem";
       removeBtn.textContent = "🗑";
 
       row.append(img, infoDiv, qtyDiv, removeBtn);
-
       fragment.appendChild(row);
     });
 
     DOM.container.replaceChildren(fragment);
   }
-  // Event Delegation (+, -, удалить)
+
   DOM.container.addEventListener("click", async (e) => {
     const row = e.target.closest(".cart-item");
     if (!row) return;
@@ -133,19 +127,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const itemIndex = cartData.findIndex((i) => i.id === dbId);
     if (itemIndex === -1) return;
 
-    // УДАЛЕНИЕ
     if (e.target.classList.contains("btn-remove")) {
       try {
         await deleteItemData("cart", dbId);
-        cartData.splice(itemIndex, 1); // Удаляем из локального State
+        cartData.splice(itemIndex, 1);
         renderCart();
         calculateTotals();
       } catch (err) {
-        alert("Error removing item.");
+        alert(t("Error removing item."));
       }
     }
 
-    // УВЕЛИЧЕНИЕ КОЛИЧЕСТВА
     if (e.target.classList.contains("btn-plus")) {
       const newQty = cartData[itemIndex].quantity + 1;
       try {
@@ -158,7 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // УМЕНЬШЕНИЕ КОЛИЧЕСТВА
     if (e.target.classList.contains("btn-minus")) {
       const newQty = cartData[itemIndex].quantity - 1;
       if (newQty < 1) return;
@@ -174,14 +165,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ОФОРМЛЕНИЕ ЗАКАЗА
   DOM.checkoutBtn.addEventListener("click", async () => {
-    if (cartData.length === 0) return;
+    if (cartData.length === 0 || !activeUser) return;
 
     try {
-      DOM.checkoutBtn.textContent = "Processing...";
+      DOM.checkoutBtn.textContent = t("Processing...");
+      DOM.checkoutBtn.disabled = true;
 
-      // Удаляем каждый элемент через Promise.all для скорости
+      const orderPayload = {
+        userId: activeUser.id,
+        userNickname: activeUser.nickname,
+        products: cartData.map((item) => ({
+          productId: item.productId,
+          title: item.title,
+          category: item.category,
+          i18n: item.i18n,
+          _baseTitle: item._baseTitle,
+          _baseCategory: item._baseCategory,
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        total: cartData.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        ),
+        date: new Date().toISOString(),
+      };
+
+      await createOrder(orderPayload);
+
       const deletePromises = cartData.map((item) =>
         deleteItemData("cart", item.id),
       );
@@ -191,13 +203,19 @@ document.addEventListener("DOMContentLoaded", () => {
       renderCart();
       calculateTotals();
 
-      DOM.checkoutBtn.textContent = "Proceed to Checkout";
-      alert("🎉 Purchase successful! Thank you for your order.");
+      alert(`🎉 ${t("Purchase successful! The order was added to history.")}`);
     } catch (error) {
-      alert("❌ Something went wrong during checkout.");
-      DOM.checkoutBtn.textContent = "Proceed to Checkout";
+      console.error(error);
+      alert(`❌ ${t("Something went wrong during checkout.")}`);
+    } finally {
+      DOM.checkoutBtn.textContent = t("Proceed to Checkout");
+      DOM.checkoutBtn.disabled = false;
     }
   });
 
   loadCart();
+
+  onLanguageChange(() => {
+    loadCart();
+  });
 });
