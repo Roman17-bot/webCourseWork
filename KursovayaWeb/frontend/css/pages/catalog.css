@@ -1,0 +1,237 @@
+.catalog-page {
+  background-color: #ffffff;
+  padding: 4rem 0 8rem 0;
+  min-height: 80vh;
+}
+
+.catalog-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.products-title {
+  max-width: 11.875rem;
+  flex: 1 0 0;
+  color: #000000;
+  font-family: Montserrat;
+  font-size: 2.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 2.875rem;
+  letter-spacing: 0.0625rem;
+}
+
+/* ЭТАП 3: Контролы (Поиск, фильтр, сортировка) */
+.controls-section {
+  background-color: #141d28;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.search-sort-bar {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input,
+.sort-select {
+  flex: 1;
+  min-width: 200px;
+  padding: 1rem 1.5rem;
+  background-color: #0c1117;
+  border: 1px solid #343d48;
+  color: #fff;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+
+.search-input:focus,
+.sort-select:focus {
+  outline: none;
+  border-color: #377dff;
+}
+
+.categories {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  background: transparent;
+  border: 1px solid #343d48;
+  color: #5c6f87;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background: #377dff;
+  color: #fff;
+  border-color: #377dff;
+}
+
+/* ЭТАП 2: Кнопки методов */
+.array-methods-section {
+  margin-bottom: 3rem;
+}
+
+.methods-title {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.methods-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.method-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.method-btn:disabled {
+  background: #757f8f;
+}
+
+/* ЭТАП 1: Сетка каталога и карточки */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background-color: #141d28;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: #377dff;
+}
+
+.product-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-category {
+  color: #377dff;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-title {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.product-desc {
+  color: #5c6f87;
+  font-size: 0.9375rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #343d48;
+  padding-top: 1rem;
+}
+
+.product-price {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.product-rating {
+  color: #ffd700;
+}
+
+/* Обработка ситуации "Ничего не найдено" */
+.not-found {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem;
+  color: #5c6f87;
+  font-size: 1.5rem;
+  background-color: #141d28;
+  border-radius: 8px;
+  border: 1px dashed #343d48;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding-top: 30px;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  max-width: 100%;
+}
+
+.product-actions {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 380px) {
+  .product-content {
+    padding: 1.25rem;
+  }
+
+  .product-actions .method-btn {
+    flex: 1 1 120px;
+    min-width: 0;
+    padding-inline: 0.75rem;
+  }
+
+  .pagination {
+    gap: 10px;
+  }
+
+  .pagination .method-btn {
+    flex: 1 1 120px;
+    max-width: 145px;
+    padding-inline: 0.75rem;
+  }
+}

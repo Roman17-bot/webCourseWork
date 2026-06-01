@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebTech - Leave Feedback</title>
+    <link rel="stylesheet" href="../css/pages/catalog.css" />
+    <link rel="stylesheet" href="../css/pages/feedback.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/components.js"></script>
+    <script type="module" src="../js/pages/feedback.js"></script>
+  </head>
+  <body>
+    <app-header></app-header>
+
+    <main class="catalog-page">
+      <div class="container feedback-container">
+        <div class="catalog-header">
+          <h2 class="products-title feedback-title">
+            <span class="text-blue">Share</span> Your Experience
+          </h2>
+        </div>
+
+        <div class="controls-section" id="feedback-form-card">
+          <form id="feedback-form" novalidate>
+            <!-- Выбор товара из купленных -->
+            <div class="field-group field-group--lg">
+              <label class="input-required field-label">
+                Select Service (Only purchased)
+              </label>
+              <select
+                id="feedback-product"
+                class="sort-select full-width"
+                required
+              >
+                <option value="" disabled selected>
+                  -- Loading your purchases --
+                </option>
+              </select>
+              <span class="error-msg" id="err-product"></span>
+            </div>
+
+            <!-- Рейтинг -->
+            <div class="field-group field-group--lg">
+              <label class="input-required field-label">Your Rating</label>
+              <select
+                id="feedback-rating"
+                class="sort-select full-width"
+                required
+              >
+                <option value="5">★★★★★ (5 - Excellent)</option>
+                <option value="4">★★★★☆ (4 - Good)</option>
+                <option value="3">★★★☆☆ (3 - Average)</option>
+                <option value="2">★★☆☆☆ (2 - Poor)</option>
+                <option value="1">★☆☆☆☆ (1 - Very Bad)</option>
+              </select>
+            </div>
+
+            <!-- Текст отзыва -->
+            <div class="field-group field-group--lg">
+              <label class="input-required field-label">
+                Review Text (Min. 20 characters)
+              </label>
+              <textarea
+                id="feedback-text"
+                class="search-input textarea-review"
+                placeholder="Tell us what you liked..."
+                required
+              ></textarea>
+              <div class="review-meta">
+                <span id="char-counter">0 characters</span>
+                <span id="min-limit-info">Min. 20 required</span>
+              </div>
+              <span class="error-msg" id="err-text"></span>
+            </div>
+
+            <button
+              type="submit"
+              id="btn-feedback-submit"
+              class="hero-button1 full-width"
+              disabled
+            >
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+
+        <div id="no-access-message" class="not-found hidden">
+          <h3>⚠️ Access Denied</h3>
+          <p id="access-error-text">You must be logged in to leave feedback.</p>
+          <br />
+          <a href="catalog.html" class="btn-outline">Go to Catalog</a>
+        </div>
+      </div>
+    </main>
+
+    <app-footer></app-footer>
+  </body>
+</html>

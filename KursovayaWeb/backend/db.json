@@ -1,0 +1,687 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Портальная автомойка WashTec",
+      "category": "Автоматические мойки",
+      "description": "Современная портальная мойка для легковых автомобилей с бережной щеточной системой.",
+      "price": 45000,
+      "rating": 4.8,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/1987e9cdf-268f-4b32-bf6c-853a670043e08776.png",
+      "i18n": {
+        "ru": {
+          "title": "Портальная автомойка WashTec",
+          "category": "Автоматические мойки",
+          "description": "Современная портальная мойка для легковых автомобилей с бережной щеточной системой."
+        },
+        "en": {
+          "title": "WashTec gantry car wash",
+          "category": "Automatic washes",
+          "description": "Modern gantry wash for passenger cars with a gentle brush system."
+        }
+      }
+    },
+    {
+      "id": "2",
+      "title": "Туннельная конвейерная линия",
+      "category": "Автоматические мойки",
+      "description": "Высокопроизводительная туннельная мойка модульного типа для большого потока машин.",
+      "price": 120000,
+      "rating": 4.9,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/2987e9cdf-268f-4b32-bf6c-853a670043e07544.png",
+      "i18n": {
+        "ru": {
+          "title": "Туннельная конвейерная линия",
+          "category": "Автоматические мойки",
+          "description": "Высокопроизводительная туннельная мойка модульного типа для большого потока машин."
+        },
+        "en": {
+          "title": "Tunnel conveyor line",
+          "category": "Automatic washes",
+          "description": "High-performance modular tunnel wash for heavy vehicle traffic."
+        }
+      }
+    },
+    {
+      "id": "3",
+      "title": "Оборудование для поста самообслуживания",
+      "category": "Самообслуживание",
+      "description": "Полный комплект для одного поста: АВД, консоли, пистолеты и пульт управления.",
+      "price": 7500,
+      "rating": 4.7,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/6987e9cdf-268f-4b32-bf6c-853a670043e03006.png",
+      "i18n": {
+        "ru": {
+          "title": "Оборудование для поста самообслуживания",
+          "category": "Самообслуживание",
+          "description": "Полный комплект для одного поста: АВД, консоли, пистолеты и пульт управления."
+        },
+        "en": {
+          "title": "Self-service bay equipment",
+          "category": "Self-service",
+          "description": "Complete set for one bay: pressure washer, booms, guns, and control panel."
+        }
+      }
+    },
+    {
+      "id": "4",
+      "title": "Робот-мойка (Бесконтактная)",
+      "category": "Автоматические мойки",
+      "description": "Автоматическая бесконтактная мойка с 3D-сканированием контуров автомобиля.",
+      "price": 38000,
+      "rating": 4.9,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/4987e9cdf-268f-4b32-bf6c-853a670043e08147.png",
+      "i18n": {
+        "ru": {
+          "title": "Робот-мойка (Бесконтактная)",
+          "category": "Автоматические мойки",
+          "description": "Автоматическая бесконтактная мойка с 3D-сканированием контуров автомобиля."
+        },
+        "en": {
+          "title": "Robotic touchless wash",
+          "category": "Automatic washes",
+          "description": "Automatic touchless wash with 3D vehicle contour scanning."
+        }
+      }
+    },
+    {
+      "id": "5",
+      "title": "Система оборотного водоснабжения",
+      "category": "Очистка воды",
+      "description": "Установка для очистки и повторного использования до 85% сточных вод автомойки.",
+      "price": 12500,
+      "rating": 4.6,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/3987e9cdf-268f-4b32-bf6c-853a670043e04758.png",
+      "i18n": {
+        "ru": {
+          "title": "Система оборотного водоснабжения",
+          "category": "Очистка воды",
+          "description": "Установка для очистки и повторного использования до 85% сточных вод автомойки."
+        },
+        "en": {
+          "title": "Water recycling system",
+          "category": "Water treatment",
+          "description": "System for treating and reusing up to 85% of car wash wastewater."
+        }
+      }
+    },
+    {
+      "id": "6",
+      "title": "Установка обратного осмоса",
+      "category": "Очистка воды",
+      "description": "Система деминерализации воды для финального ополаскивания без пятен и разводов.",
+      "price": 4200,
+      "rating": 4.8,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/6987e9cdf-268f-4b32-bf6c-853a670043e06589.png",
+      "i18n": {
+        "ru": {
+          "title": "Установка обратного осмоса",
+          "category": "Очистка воды",
+          "description": "Система деминерализации воды для финального ополаскивания без пятен и разводов."
+        },
+        "en": {
+          "title": "Reverse osmosis system",
+          "category": "Water treatment",
+          "description": "Water demineralization system for spot-free final rinsing."
+        }
+      }
+    },
+    {
+      "id": "7",
+      "title": "Двухтурбинный пылесос самообслуживания",
+      "category": "Доп. оборудование",
+      "description": "Мощный пылесос из нержавеющей стали с жетоноприемником для сухой уборки салона.",
+      "price": 2100,
+      "rating": 4.5,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/2987e9cdf-268f-4b32-bf6c-853a670043e03466.png",
+      "i18n": {
+        "ru": {
+          "title": "Двухтурбинный пылесос самообслуживания",
+          "category": "Доп. оборудование",
+          "description": "Мощный пылесос из нержавеющей стали с жетоноприемником для сухой уборки салона."
+        },
+        "en": {
+          "title": "Two-turbine self-service vacuum",
+          "category": "Extra equipment",
+          "description": "Powerful stainless-steel vacuum with token acceptor for dry interior cleaning."
+        }
+      }
+    },
+    {
+      "id": "8",
+      "title": "Аппарат высокого давления (АВД)",
+      "category": "Комплектующие",
+      "description": "Промышленная помпа с электродвигателем (200 бар, 15 л/мин) для интенсивной нагрузки.",
+      "price": 1100,
+      "rating": 4.7,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/6987e9cdf-268f-4b32-bf6c-853a670043e05203.png",
+      "i18n": {
+        "ru": {
+          "title": "Аппарат высокого давления (АВД)",
+          "category": "Комплектующие",
+          "description": "Промышленная помпа с электродвигателем (200 бар, 15 л/мин) для интенсивной нагрузки."
+        },
+        "en": {
+          "title": "High-pressure washer",
+          "category": "Components",
+          "description": "Industrial pump with electric motor (200 bar, 15 l/min) for intensive use."
+        }
+      }
+    },
+    {
+      "id": "9",
+      "title": "Терминал оплаты для мойки",
+      "category": "Самообслуживание",
+      "description": "Уличный терминал с защитой от влаги IP65, поддержкой купюр, монет и банковских карт.",
+      "price": 3500,
+      "rating": 4.4,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/6987e9cdf-268f-4b32-bf6c-853a670043e05513.png",
+      "i18n": {
+        "ru": {
+          "title": "Терминал оплаты для мойки",
+          "category": "Самообслуживание",
+          "description": "Уличный терминал с защитой от влаги IP65, поддержкой купюр, монет и банковских карт."
+        },
+        "en": {
+          "title": "Car wash payment terminal",
+          "category": "Self-service",
+          "description": "Outdoor IP65 terminal supporting banknotes, coins, and bank cards."
+        }
+      }
+    },
+    {
+      "id": "10",
+      "title": "Поворотная консоль (Пантограф)",
+      "category": "Комплектующие",
+      "description": "Z-образная потолочная консоль 360° из нержавеющей стали для шлангов ВД.",
+      "price": 280,
+      "rating": 4.6,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/0987e9cdf-268f-4b32-bf6c-853a670043e06428.png",
+      "i18n": {
+        "ru": {
+          "title": "Поворотная консоль (Пантограф)",
+          "category": "Комплектующие",
+          "description": "Z-образная потолочная консоль 360° из нержавеющей стали для шлангов ВД."
+        },
+        "en": {
+          "title": "Swivel boom pantograph",
+          "category": "Components",
+          "description": "360-degree Z-shaped stainless-steel ceiling boom for high-pressure hoses."
+        }
+      }
+    },
+    {
+      "id": "11",
+      "title": "Дозирующий насос для химии",
+      "category": "Комплектующие",
+      "description": "Высокоточный электромагнитный насос-дозатор для шампуня и воска.",
+      "price": 190,
+      "rating": 4.3,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/2987e9cdf-268f-4b32-bf6c-853a670043e01634.png",
+      "i18n": {
+        "ru": {
+          "title": "Дозирующий насос для химии",
+          "category": "Комплектующие",
+          "description": "Высокоточный электромагнитный насос-дозатор для шампуня и воска."
+        },
+        "en": {
+          "title": "Chemical dosing pump",
+          "category": "Components",
+          "description": "High-precision electromagnetic dosing pump for shampoo and wax."
+        }
+      }
+    },
+    {
+      "id": "12",
+      "title": "Автохимия: Активная пена (20л)",
+      "category": "Расходные материалы",
+      "description": "Сильнопенящееся щелочное средство для бесконтактной мойки любых типов кузова.",
+      "price": 45,
+      "rating": 4.8,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/5987e9cdf-268f-4b32-bf6c-853a670043e09715.png",
+      "i18n": {
+        "ru": {
+          "title": "Автохимия: Активная пена (20л)",
+          "category": "Расходные материалы",
+          "description": "Сильнопенящееся щелочное средство для бесконтактной мойки любых типов кузова."
+        },
+        "en": {
+          "title": "Car chemicals: active foam, 20 L",
+          "category": "Consumables",
+          "description": "High-foaming alkaline agent for touchless washing of all body types."
+        }
+      }
+    },
+    {
+      "id": "13",
+      "title": "Аппарат для мойки ковриков",
+      "category": "Доп. оборудование",
+      "description": "Автоматическая машина для влажной чистки и сушки автомобильных ковриков.",
+      "price": 3200,
+      "rating": 4.5,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/1987e9cdf-268f-4b32-bf6c-853a670043e07138.png",
+      "i18n": {
+        "ru": {
+          "title": "Аппарат для мойки ковриков",
+          "category": "Доп. оборудование",
+          "description": "Автоматическая машина для влажной чистки и сушки автомобильных ковриков."
+        },
+        "en": {
+          "title": "Mat washing machine",
+          "category": "Extra equipment",
+          "description": "Automatic machine for wet cleaning and drying car mats."
+        }
+      }
+    },
+    {
+      "id": "14",
+      "title": "Воздушный компрессор 100л",
+      "category": "Оборудование",
+      "description": "Поршневой масляный компрессор для обеспечения сжатым воздухом пневматических систем.",
+      "price": 850,
+      "rating": 4.4,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/8987e9cdf-268f-4b32-bf6c-853a670043e04810.png",
+      "i18n": {
+        "ru": {
+          "title": "Воздушный компрессор 100л",
+          "category": "Оборудование",
+          "description": "Поршневой масляный компрессор для обеспечения сжатым воздухом пневматических систем."
+        },
+        "en": {
+          "title": "100 L air compressor",
+          "category": "Equipment",
+          "description": "Oil piston compressor for supplying compressed air to pneumatic systems."
+        }
+      }
+    },
+    {
+      "id": "15",
+      "title": "Портальная мойка для грузовиков",
+      "category": "Автоматические мойки",
+      "description": "Крупногабаритная моечная установка для фур, автобусов и спецтехники.",
+      "price": 75000,
+      "rating": 4.9,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/1987e9cdf-268f-4b32-bf6c-853a670043e03025.png",
+      "i18n": {
+        "ru": {
+          "title": "Портальная мойка для грузовиков",
+          "category": "Автоматические мойки",
+          "description": "Крупногабаритная моечная установка для фур, автобусов и спецтехники."
+        },
+        "en": {
+          "title": "Truck gantry wash",
+          "category": "Automatic washes",
+          "description": "Large-format wash system for trucks, buses, and special vehicles."
+        }
+      }
+    }
+  ],
+  "cart": [
+    {
+      "productId": "12",
+      "title": "API Integration",
+      "price": 500,
+      "image": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=250&fit=crop",
+      "category": "Web Development",
+      "userId": "u1",
+      "addedAt": "2026-05-23T18:15:53.523Z",
+      "quantity": 5,
+      "id": "xVAWN2bBKb4",
+      "i18n": {
+        "ru": {
+          "title": "Автохимия: Активная пена (20л)",
+          "category": "Расходные материалы",
+          "description": "Сильнопенящееся щелочное средство для бесконтактной мойки любых типов кузова."
+        },
+        "en": {
+          "title": "Car chemicals: active foam, 20 L",
+          "category": "Consumables",
+          "description": "High-foaming alkaline agent for touchless washing of all body types."
+        }
+      }
+    },
+    {
+      "productId": "15",
+      "title": "Портальная мойка для грузовиков",
+      "price": 75000,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/1987e9cdf-268f-4b32-bf6c-853a670043e03025.png",
+      "category": "Автоматические мойки",
+      "userId": "u2",
+      "addedAt": "2026-05-27T09:43:00.464Z",
+      "quantity": 1,
+      "id": "QNDxv-q5_qg",
+      "i18n": {
+        "ru": {
+          "title": "Портальная мойка для грузовиков",
+          "category": "Автоматические мойки",
+          "description": "Крупногабаритная моечная установка для фур, автобусов и спецтехники."
+        },
+        "en": {
+          "title": "Truck gantry wash",
+          "category": "Automatic washes",
+          "description": "Large-format wash system for trucks, buses, and special vehicles."
+        }
+      }
+    }
+  ],
+  "favorites": [
+    {
+      "productId": "1",
+      "title": "Basic Web Design",
+      "price": 499,
+      "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=250&fit=crop",
+      "category": "Design",
+      "userId": "u1",
+      "addedAt": "2026-05-23T18:15:15.584Z",
+      "id": "sIfrgI_hNFQ",
+      "i18n": {
+        "ru": {
+          "title": "Портальная автомойка WashTec",
+          "category": "Автоматические мойки",
+          "description": "Современная портальная мойка для легковых автомобилей с бережной щеточной системой."
+        },
+        "en": {
+          "title": "WashTec gantry car wash",
+          "category": "Automatic washes",
+          "description": "Modern gantry wash for passenger cars with a gentle brush system."
+        }
+      }
+    },
+    {
+      "productId": "1",
+      "title": "Портальная автомойка WashTec",
+      "price": 45000,
+      "image": "https://image.qwenlm.ai/public_source/aff65a00-4f13-4671-a3cd-ca6af81e98f7/1987e9cdf-268f-4b32-bf6c-853a670043e08776.png",
+      "category": "Автоматические мойки",
+      "userId": "u2",
+      "addedAt": "2026-05-25T07:45:08.835Z",
+      "id": "8fn_oFmA-f8",
+      "i18n": {
+        "ru": {
+          "title": "Портальная автомойка WashTec",
+          "category": "Автоматические мойки",
+          "description": "Современная портальная мойка для легковых автомобилей с бережной щеточной системой."
+        },
+        "en": {
+          "title": "WashTec gantry car wash",
+          "category": "Automatic washes",
+          "description": "Modern gantry wash for passenger cars with a gentle brush system."
+        }
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "phone": "+375 (29) 111-22-33",
+      "email": "client@webtech.by",
+      "birthdate": "2000-01-01",
+      "lastName": "Иванов",
+      "firstName": "Иван",
+      "patronymic": "Иванович",
+      "nickname": "IvaIva123",
+      "password": "Password123!",
+      "role": "client"
+    },
+    {
+      "id": "u2",
+      "phone": "+375 (44) 999-88-77",
+      "email": "admin@webtech.by",
+      "birthdate": "1990-05-15",
+      "lastName": "Петров",
+      "firstName": "Алексей",
+      "patronymic": "",
+      "nickname": "AdminAlex",
+      "password": "AdminPassword123!",
+      "role": "administrator"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "f1",
+      "userId": "u1",
+      "userNickname": "IvaIva123",
+      "productId": "1",
+      "productTitle": "Basic Web Design",
+      "rating": 5,
+      "text": "Отличная работа! Сайт полностью адаптивный и быстрый. Рекомендую эту студию.",
+      "date": "2026-05-10T14:30:00.000Z",
+      "productI18n": {
+        "ru": {
+          "title": "Портальная автомойка WashTec",
+          "category": "Автоматические мойки",
+          "description": "Современная портальная мойка для легковых автомобилей с бережной щеточной системой."
+        },
+        "en": {
+          "title": "WashTec gantry car wash",
+          "category": "Automatic washes",
+          "description": "Modern gantry wash for passenger cars with a gentle brush system."
+        }
+      },
+      "i18n": {
+        "ru": {
+          "text": "Отличная работа! Сайт полностью адаптивный и быстрый. Рекомендую эту студию."
+        },
+        "en": {
+          "text": "Excellent work! The site is fully responsive and fast. I recommend this company."
+        }
+      }
+    }
+  ],
+  "orders": [
+    {
+      "id": "o1",
+      "userId": "u1",
+      "userNickname": "IvaIva123",
+      "products": [
+        {
+          "productId": "1",
+          "title": "Basic Web Design",
+          "price": 499,
+          "quantity": 1,
+          "i18n": {
+            "ru": {
+              "title": "Портальная автомойка WashTec",
+              "category": "Автоматические мойки",
+              "description": "Современная портальная мойка для легковых автомобилей с бережной щеточной системой."
+            },
+            "en": {
+              "title": "WashTec gantry car wash",
+              "category": "Automatic washes",
+              "description": "Modern gantry wash for passenger cars with a gentle brush system."
+            }
+          }
+        }
+      ],
+      "total": 499,
+      "date": "2026-05-08T10:15:00.000Z"
+    },
+    {
+      "userId": "u1",
+      "userNickname": "IvaIva123",
+      "products": [
+        {
+          "productId": "2",
+          "title": "E-Commerce Development",
+          "price": 1500,
+          "quantity": 1,
+          "i18n": {
+            "ru": {
+              "title": "Туннельная конвейерная линия",
+              "category": "Автоматические мойки",
+              "description": "Высокопроизводительная туннельная мойка модульного типа для большого потока машин."
+            },
+            "en": {
+              "title": "Tunnel conveyor line",
+              "category": "Automatic washes",
+              "description": "High-performance modular tunnel wash for heavy vehicle traffic."
+            }
+          }
+        }
+      ],
+      "total": 1500,
+      "date": "2026-05-23T18:15:07.358Z",
+      "id": "dSeNv9Kqwuc"
+    },
+    {
+      "userId": "u1",
+      "userNickname": "IvaIva123",
+      "products": [
+        {
+          "productId": "4",
+          "title": "Logo Creation",
+          "price": 150,
+          "quantity": 1,
+          "i18n": {
+            "ru": {
+              "title": "Робот-мойка (Бесконтактная)",
+              "category": "Автоматические мойки",
+              "description": "Автоматическая бесконтактная мойка с 3D-сканированием контуров автомобиля."
+            },
+            "en": {
+              "title": "Robotic touchless wash",
+              "category": "Automatic washes",
+              "description": "Automatic touchless wash with 3D vehicle contour scanning."
+            }
+          }
+        }
+      ],
+      "total": 150,
+      "date": "2026-05-23T18:15:48.470Z",
+      "id": "1BGli03ntZI"
+    },
+    {
+      "userId": "u2",
+      "userNickname": "AdminAlex",
+      "products": [
+        {
+          "productId": "2",
+          "title": "E-Commerce Development",
+          "price": 1500,
+          "quantity": 4,
+          "i18n": {
+            "ru": {
+              "title": "Туннельная конвейерная линия",
+              "category": "Автоматические мойки",
+              "description": "Высокопроизводительная туннельная мойка модульного типа для большого потока машин."
+            },
+            "en": {
+              "title": "Tunnel conveyor line",
+              "category": "Automatic washes",
+              "description": "High-performance modular tunnel wash for heavy vehicle traffic."
+            }
+          }
+        }
+      ],
+      "total": 6000,
+      "date": "2026-05-23T18:34:24.293Z",
+      "id": "vdYh-qyggWE"
+    },
+    {
+      "userId": "u2",
+      "userNickname": "AdminAlex",
+      "products": [
+        {
+          "productId": "3",
+          "title": "SEO Optimization",
+          "price": 300,
+          "quantity": 3,
+          "i18n": {
+            "ru": {
+              "title": "Оборудование для поста самообслуживания",
+              "category": "Самообслуживание",
+              "description": "Полный комплект для одного поста: АВД, консоли, пистолеты и пульт управления."
+            },
+            "en": {
+              "title": "Self-service bay equipment",
+              "category": "Self-service",
+              "description": "Complete set for one bay: pressure washer, booms, guns, and control panel."
+            }
+          }
+        },
+        {
+          "productId": "2",
+          "title": "E-Commerce Development",
+          "price": 1500,
+          "quantity": 3,
+          "i18n": {
+            "ru": {
+              "title": "Туннельная конвейерная линия",
+              "category": "Автоматические мойки",
+              "description": "Высокопроизводительная туннельная мойка модульного типа для большого потока машин."
+            },
+            "en": {
+              "title": "Tunnel conveyor line",
+              "category": "Automatic washes",
+              "description": "High-performance modular tunnel wash for heavy vehicle traffic."
+            }
+          }
+        }
+      ],
+      "total": 5400,
+      "date": "2026-05-25T07:43:42.858Z",
+      "id": "9GqQthVL86E"
+    },
+    {
+      "userId": "u2",
+      "userNickname": "AdminAlex",
+      "products": [
+        {
+          "productId": "2",
+          "title": "Туннельная конвейерная линия",
+          "price": 120000,
+          "quantity": 1,
+          "i18n": {
+            "ru": {
+              "title": "Туннельная конвейерная линия",
+              "category": "Автоматические мойки",
+              "description": "Высокопроизводительная туннельная мойка модульного типа для большого потока машин."
+            },
+            "en": {
+              "title": "Tunnel conveyor line",
+              "category": "Automatic washes",
+              "description": "High-performance modular tunnel wash for heavy vehicle traffic."
+            }
+          }
+        },
+        {
+          "productId": "4",
+          "title": "Робот-мойка (Бесконтактная)",
+          "price": 38000,
+          "quantity": 1,
+          "i18n": {
+            "ru": {
+              "title": "Робот-мойка (Бесконтактная)",
+              "category": "Автоматические мойки",
+              "description": "Автоматическая бесконтактная мойка с 3D-сканированием контуров автомобиля."
+            },
+            "en": {
+              "title": "Robotic touchless wash",
+              "category": "Automatic washes",
+              "description": "Automatic touchless wash with 3D vehicle contour scanning."
+            }
+          }
+        }
+      ],
+      "total": 158000,
+      "date": "2026-05-27T09:42:53.048Z",
+      "id": "l01j1x9z7vk"
+    }
+  ],
+  "contactRequests": [
+    {
+      "name": "Роман",
+      "phone": "+375 (33) 349-11-83",
+      "email": "rpis20849@gmail.com",
+      "city": "Могилев",
+      "message": "авыавыподво  лавтплтвлп щовпвлао",
+      "status": "new",
+      "source": "main-contact-form",
+      "createdAt": "2026-05-27T10:10:28.128Z",
+      "userId": "u2",
+      "userNickname": "AdminAlex",
+      "id": "MigoOJ63cac"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,50 @@
+/* ===== Контейнер страницы ===== */
+.feedback-container {
+  max-width: 600px;
+  padding: 2rem 1rem;
+}
+
+/* ===== Заголовок страницы ===== */
+.feedback-title {
+  max-width: 100%;
+}
+
+/* ===== Поля формы ===== */
+.field-label {
+  color: #fff;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.field-group {
+  margin-bottom: 1rem;
+}
+
+.field-group--lg {
+  margin-bottom: 1.5rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* ===== Textarea отзыва ===== */
+.textarea-review {
+  width: 100%;
+  height: 120px;
+  resize: vertical;
+}
+
+/* ===== Мета-информация (счётчик символов) ===== */
+.review-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #5c6f87;
+  margin-top: 5px;
+}
+
+/* ===== Утилита скрытия ===== */
+.hidden {
+  display: none;
+}

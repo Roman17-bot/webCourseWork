@@ -1,0 +1,108 @@
+/* ===== Контейнер страницы ===== */
+.auth-container {
+  max-width: 600px;
+  padding: 2rem 1rem;
+}
+
+/* ===== Табы ===== */
+.auth-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  font-size: 1.2rem;
+  padding: 0.7rem 2rem;
+}
+
+/* ===== Заголовки форм ===== */
+.auth-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ===== Поля формы ===== */
+.field-label {
+  color: #fff;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.field-group {
+  margin-bottom: 1rem;
+}
+
+.field-group--lg {
+  margin-bottom: 1.5rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* ===== Утилита скрытия ===== */
+.hidden {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .auth-tabs {
+    gap: 0.75rem;
+    justify-content: stretch;
+  }
+
+  .tab-btn {
+    flex: 1 1 130px;
+    min-width: 0;
+    padding-inline: 1rem;
+  }
+}
+
+/* ===== Автосгенерированный пароль ===== */
+.auto-password-section {
+  margin-bottom: 1rem;
+}
+
+.auto-password-field {
+  background-color: #0c1117;
+  font-weight: bold;
+  color: #377dff;
+}
+
+/* ===== Никнейм ===== */
+.nickname-row {
+  display: flex;
+  gap: 10px;
+}
+
+.nickname-row .search-input {
+  flex: 1;
+}
+
+.btn-generate {
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.attempts-info {
+  font-size: 0.8rem;
+  color: #5c6f87;
+  margin-top: 5px;
+  display: block;
+}
+
+/* ===== Ссылка соглашения ===== */
+.agreement-link {
+  color: #377dff;
+  text-decoration: underline;
+}
+
+/* ===== Модалка ===== */
+.modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
